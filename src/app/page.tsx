@@ -15,18 +15,24 @@ const navLinks = [
   { label: "Cruise Tips", href: "#tips" },
 ] as const;
 
+const trustBadges = [
+  "Return to ship on time",
+  "Cruise passenger friendly",
+  "Norway fjord specialists",
+] as const;
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-gray-900/90 text-white backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#" className="text-lg font-bold tracking-tight md:text-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6">
+          <a href="#" className="text-base font-bold tracking-tight sm:text-lg">
             Flam Shore Excursions
           </a>
 
           <nav
             aria-label="Main navigation"
-            className="hidden items-center gap-8 md:flex"
+            className="hidden items-center gap-6 md:flex"
           >
             {navLinks.map((link) => (
               <a
@@ -41,7 +47,7 @@ export default function Home() {
 
           <a
             href="#tours"
-            className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold transition hover:bg-blue-500 md:px-5 md:py-2.5"
+            className="rounded-full bg-blue-600 px-3.5 py-1.5 text-xs font-semibold transition hover:bg-blue-500 sm:px-4 sm:py-2 sm:text-sm"
           >
             Book a Tour
           </a>
@@ -54,22 +60,33 @@ export default function Home() {
         style={{ backgroundImage: `url('${images.hero}')` }}
       >
         <div className="bg-black/50">
-          <div className="mx-auto max-w-6xl px-6 py-32 text-center text-white">
-            <h1 className="mb-6 text-5xl font-bold md:text-7xl">
+          <div className="mx-auto max-w-6xl px-4 py-20 text-center text-white sm:px-6 sm:py-28 md:py-32">
+            <h1 className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl md:text-6xl lg:text-7xl">
               Flam Shore Excursions
             </h1>
 
-            <p className="mx-auto mb-8 max-w-3xl text-xl md:text-2xl">
+            <p className="mx-auto mb-6 max-w-3xl text-base sm:mb-8 sm:text-xl md:text-2xl">
               Discover unforgettable Norway fjord adventures designed for cruise
               passengers.
             </p>
 
             <a
               href="#tours"
-              className="inline-block rounded-full bg-blue-600 px-8 py-4 text-lg font-semibold transition hover:bg-blue-700"
+              className="inline-block rounded-full bg-blue-600 px-6 py-3 text-base font-semibold transition hover:bg-blue-700 sm:px-8 sm:py-4 sm:text-lg"
             >
               View Excursions
             </a>
+
+            <ul className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:mt-8 sm:gap-3">
+              {trustBadges.map((badge) => (
+                <li
+                  key={badge}
+                  className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:px-4 sm:text-sm"
+                >
+                  {badge}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -88,72 +105,76 @@ export default function Home() {
       </section>
 
       {/* Tour Cards */}
-      <section id="tours" className="mx-auto max-w-6xl px-6 pb-24">
-        <h2 className="mb-10 text-4xl font-bold">Popular Flam Tours</h2>
+      <section id="tours" className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-24">
+        <h2 className="mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl">
+          Popular Flam Tours
+        </h2>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="overflow-hidden rounded-2xl border shadow-lg">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md">
             <img
               src={images.fjordCruise}
               alt="Naeroyfjord scenic cruise near Flam, Norway"
-              className="h-56 w-full object-cover"
+              className="h-36 w-full object-cover sm:h-40 lg:h-44"
             />
 
-            <div className="p-6">
-              <h3 className="mb-3 text-2xl font-bold">Flam Fjord Cruise</h3>
+            <div className="flex flex-1 flex-col p-4 sm:p-5">
+              <h3 className="mb-2 text-lg font-bold sm:text-xl">
+                Flam Fjord Cruise
+              </h3>
 
-              <p className="mb-4 text-gray-600">
+              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
                 Experience dramatic fjords and waterfalls on a scenic cruise
                 through the Naeroyfjord from Flam.
               </p>
 
-              <button className="rounded-full bg-gray-900 px-5 py-3 text-white transition hover:bg-black">
+              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
                 View Tour
               </button>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border shadow-lg">
+          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md">
             <img
               src={images.stegastein}
               alt="Stegastein viewpoint overlooking Aurlandsfjord near Flam"
-              className="h-56 w-full object-cover"
+              className="h-36 w-full object-cover sm:h-40 lg:h-44"
             />
 
-            <div className="p-6">
-              <h3 className="mb-3 text-2xl font-bold">
+            <div className="flex flex-1 flex-col p-4 sm:p-5">
+              <h3 className="mb-2 text-lg font-bold sm:text-xl">
                 Stegastein Viewpoint Tour
               </h3>
 
-              <p className="mb-4 text-gray-600">
+              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
                 Visit one of Norway&apos;s most famous panoramic viewpoints above
                 the Aurlandsfjord.
               </p>
 
-              <button className="rounded-full bg-gray-900 px-5 py-3 text-white transition hover:bg-black">
+              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
                 View Tour
               </button>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border shadow-lg">
+          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md sm:col-span-2 sm:max-w-md sm:justify-self-center lg:col-span-1 lg:max-w-none">
             <img
               src={images.flamRailway}
               alt="Flamsbana scenic railway through the mountains above Flam"
-              className="h-56 w-full object-cover"
+              className="h-36 w-full object-cover sm:h-40 lg:h-44"
             />
 
-            <div className="p-6">
-              <h3 className="mb-3 text-2xl font-bold">
+            <div className="flex flex-1 flex-col p-4 sm:p-5">
+              <h3 className="mb-2 text-lg font-bold sm:text-xl">
                 Flam Railway Experience
               </h3>
 
-              <p className="mb-4 text-gray-600">
+              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
                 Ride one of the world&apos;s most scenic railway journeys through
                 Norway&apos;s mountains on the Flamsbana.
               </p>
 
-              <button className="rounded-full bg-gray-900 px-5 py-3 text-white transition hover:bg-black">
+              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
                 View Tour
               </button>
             </div>
