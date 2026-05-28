@@ -110,75 +110,75 @@ export default function Home() {
           Popular Flam Tours
         </h2>
 
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
+          <article className="flex flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
             <img
               src={images.fjordCruise}
               alt="Naeroyfjord scenic cruise near Flam, Norway"
-              className="h-36 w-full object-cover sm:h-40 lg:h-44"
+              className="h-40 w-full object-cover"
             />
 
-            <div className="flex flex-1 flex-col p-4 sm:p-5">
-              <h3 className="mb-2 text-lg font-bold sm:text-xl">
+            <div className="flex flex-1 flex-col p-3.5 md:p-4">
+              <h3 className="mb-1.5 text-base font-semibold">
                 Flam Fjord Cruise
               </h3>
 
-              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
+              <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
                 Experience dramatic fjords and waterfalls on a scenic cruise
                 through the Naeroyfjord from Flam.
               </p>
 
-              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
+              <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
                 View Tour
               </button>
             </div>
-          </div>
+          </article>
 
-          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md">
+          <article className="flex flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
             <img
               src={images.stegastein}
               alt="Stegastein viewpoint overlooking Aurlandsfjord near Flam"
-              className="h-36 w-full object-cover sm:h-40 lg:h-44"
+              className="h-40 w-full object-cover"
             />
 
-            <div className="flex flex-1 flex-col p-4 sm:p-5">
-              <h3 className="mb-2 text-lg font-bold sm:text-xl">
+            <div className="flex flex-1 flex-col p-3.5 md:p-4">
+              <h3 className="mb-1.5 text-base font-semibold">
                 Stegastein Viewpoint Tour
               </h3>
 
-              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
+              <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
                 Visit one of Norway&apos;s most famous panoramic viewpoints above
                 the Aurlandsfjord.
               </p>
 
-              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
+              <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
                 View Tour
               </button>
             </div>
-          </div>
+          </article>
 
-          <div className="flex flex-col overflow-hidden rounded-xl border shadow-md sm:col-span-2 sm:max-w-md sm:justify-self-center lg:col-span-1 lg:max-w-none">
+          <article className="flex flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
             <img
               src={images.flamRailway}
               alt="Flamsbana scenic railway through the mountains above Flam"
-              className="h-36 w-full object-cover sm:h-40 lg:h-44"
+              className="h-40 w-full object-cover"
             />
 
-            <div className="flex flex-1 flex-col p-4 sm:p-5">
-              <h3 className="mb-2 text-lg font-bold sm:text-xl">
+            <div className="flex flex-1 flex-col p-3.5 md:p-4">
+              <h3 className="mb-1.5 text-base font-semibold">
                 Flam Railway Experience
               </h3>
 
-              <p className="mb-4 flex-1 text-sm leading-6 text-gray-600 sm:text-base">
+              <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
                 Ride one of the world&apos;s most scenic railway journeys through
                 Norway&apos;s mountains on the Flamsbana.
               </p>
 
-              <button className="w-full rounded-full bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-black sm:w-auto sm:px-5 sm:py-2.5">
+              <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
                 View Tour
               </button>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
