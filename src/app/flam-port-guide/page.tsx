@@ -159,6 +159,20 @@ export default function FlamPortGuidePage() {
           leaving margin to return to ship on time before the gangway closes.
         </p>
       </section>
+
+      <section>
+        <p>
+          Continuing your Norwegian cruise? Many itineraries also visit Stavanger.
+          See our{" "}
+          <a
+            href="https://stavangershoreexcursions.com"
+            className="font-medium text-blue-700 underline-offset-2 hover:underline"
+          >
+            Stavanger Shore Excursions
+          </a>{" "}
+          guide for Lysefjord cruises, walking tours and cruise planning resources.
+        </p>
+      </section>
     </ContentPage>
   );
 }

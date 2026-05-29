@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import {
+  ExploreNorwegianPorts,
+  explorePortsFromFlam,
+} from "@/components/explore-norwegian-ports";
 import { JsonLd } from "@/components/json-ld";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { buildItemListSchema, buildWebPageSchema } from "@/lib/site-schema";
@@ -200,6 +204,8 @@ export default function Home() {
             </article>
           </div>
         </section>
+
+        <ExploreNorwegianPorts config={explorePortsFromFlam} />
 
         <section id="tips" className="border-t bg-gray-50">
           <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
