@@ -11,8 +11,6 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { shipScheduleHub, shipScheduleMonths } from "@/lib/ship-schedule-months";
 import { buildWebPageSchema } from "@/lib/site-schema";
 
-export const dynamic = "force-dynamic";
-
 const pageMeta = {
   title: shipScheduleHub.title,
   description: shipScheduleHub.description,
