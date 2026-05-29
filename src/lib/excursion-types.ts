@@ -25,6 +25,11 @@ export type ExcursionSummary = {
   bestFor: string;
 };
 
+export type ExcursionSnapshotCard = {
+  label: string;
+  value: string;
+};
+
 export type ExcursionData = {
   slug: string;
   path: string;
@@ -35,7 +40,9 @@ export type ExcursionData = {
   metaDescription: string;
   heroImage: string;
   heroImageAlt: string;
+  heroBadge?: string;
   summary: ExcursionSummary;
+  snapshotCards?: readonly ExcursionSnapshotCard[];
   gallery: ExcursionImage[];
   highlights: string[];
   description: readonly string[];
@@ -47,4 +54,6 @@ export type ExcursionData = {
   relatedLinks: readonly ExcursionRelatedLink[];
   bookingHref?: string;
   bookingLabel?: string;
+  ctaTitle?: string;
+  ctaText?: string;
 };

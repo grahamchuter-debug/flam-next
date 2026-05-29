@@ -13,6 +13,7 @@ export const flamFjordCruiseExcursion: ExcursionData = {
   heroImage: siteImages.fjordCruise,
   heroImageAlt:
     "Scenic cruise boat on the Naeroyfjord surrounded by steep cliffs near Flam, Norway",
+  heroBadge: "⭐ Best for First-Time Visitors to Flam",
   summary: {
     duration: "Approx. 2–3 hours",
     meetingPoint: "Flam pier, near the cruise ship gangway",
@@ -20,18 +21,36 @@ export const flamFjordCruiseExcursion: ExcursionData = {
       "Timed for typical cruise port calls with buffer before all aboard",
     bestFor: "First-time visitors, photographers, and couples wanting a classic fjord experience",
   },
+  snapshotCards: [
+    { label: "Walk from ship", value: "Approx. 5 minutes" },
+    { label: "Fitness level", value: "Easy" },
+    { label: "Port call suitability", value: "Ideal for 6–10 hour visits" },
+    { label: "Availability", value: "Popular in June & July" },
+  ],
   gallery: [
     {
       src: siteImages.fjordCruise,
-      alt: "Tour boat sailing through the narrow Naeroyfjord with steep mountain walls near Flam",
+      alt: "Fjord cruise vessel sailing through the Naeroyfjord near Flam, Norway",
     },
     {
-      src: siteImages.hero,
-      alt: "Cruise ship docked at Flam pier on the Aurlandsfjord",
+      src: siteImages.fjordWaterfall,
+      alt: "Waterfall cascading into the Naeroyfjord during a fjord cruise",
+    },
+    {
+      src: siteImages.naeroyfjordNarrow,
+      alt: "Narrow Naeroyfjord scenery with steep cliffs near Flam",
     },
     {
       src: siteImages.naeroyfjord,
-      alt: "Panoramic view of the Naeroyfjord near Flam in summer",
+      alt: "Panoramic Naeroyfjord landscape in the Flam region of Norway",
+    },
+    {
+      src: siteImages.fjordNorway,
+      alt: "Scenic fjord waters and mountain walls on a Norway cruise route",
+    },
+    {
+      src: siteImages.hero,
+      alt: "Cruise ship docked at Flam pier beside fjord excursion departures",
     },
   ],
   highlights: [
@@ -102,4 +121,7 @@ export const flamFjordCruiseExcursion: ExcursionData = {
   ],
   bookingHref: "/flam-shore-excursions",
   bookingLabel: "Book this excursion",
+  ctaTitle: "Ready to book your Flam fjord cruise?",
+  ctaText:
+    "Secure your sailing time before port day and explore more cruise-friendly excursions designed around your ship's timetable.",
 };

@@ -164,9 +164,12 @@ export default function Home() {
                   the Aurlandsfjord.
                 </p>
 
-                <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
+                <Link
+                  href="/excursions/stegastein-viewpoint"
+                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
+                >
                   View Tour
-                </button>
+                </Link>
               </div>
             </article>
 
@@ -187,9 +190,12 @@ export default function Home() {
                   Norway&apos;s mountains on the Flamsbana.
                 </p>
 
-                <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
+                <Link
+                  href="/excursions/flam-railway"
+                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
+                >
                   View Tour
-                </button>
+                </Link>
               </div>
             </article>
           </div>

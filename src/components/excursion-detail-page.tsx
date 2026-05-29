@@ -28,6 +28,17 @@ function ContentSection({
   );
 }
 
+function SnapshotCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+        {label}
+      </p>
+      <p className="mt-2 text-base font-medium text-gray-900">{value}</p>
+    </div>
+  );
+}
+
 export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
   const schema = [
     buildWebPageSchema({
@@ -59,7 +70,14 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
               <p className="max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
                 {excursion.lead}
               </p>
-              <p className="mt-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm">
+              {excursion.heroBadge ? (
+                <p className="mt-5 inline-flex rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white shadow-sm sm:text-sm">
+                  {excursion.heroBadge}
+                </p>
+              ) : null}
+              <p
+                className={`${excursion.heroBadge ? "mt-3" : "mt-5"} inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm`}
+              >
                 Return to ship on time — cruise passenger friendly
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -83,61 +101,51 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
         <section className="border-b bg-gray-50">
           <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Duration
-                </p>
-                <p className="mt-2 text-base font-medium text-gray-900">
-                  {excursion.summary.duration}
-                </p>
-              </div>
-              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Meeting point
-                </p>
-                <p className="mt-2 text-base font-medium text-gray-900">
-                  {excursion.summary.meetingPoint}
-                </p>
-              </div>
-              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Return to ship
-                </p>
-                <p className="mt-2 text-base font-medium text-gray-900">
-                  {excursion.summary.returnReassurance}
-                </p>
-              </div>
-              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  Best for
-                </p>
-                <p className="mt-2 text-base font-medium text-gray-900">
-                  {excursion.summary.bestFor}
-                </p>
-              </div>
+              <SnapshotCard label="Duration" value={excursion.summary.duration} />
+              <SnapshotCard
+                label="Meeting point"
+                value={excursion.summary.meetingPoint}
+              />
+              <SnapshotCard
+                label="Return to ship"
+                value={excursion.summary.returnReassurance}
+              />
+              <SnapshotCard label="Best for" value={excursion.summary.bestFor} />
             </div>
+            {excursion.snapshotCards && excursion.snapshotCards.length > 0 ? (
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {excursion.snapshotCards.map((card) => (
+                  <SnapshotCard
+                    key={card.label}
+                    label={card.label}
+                    value={card.value}
+                  />
+                ))}
+              </div>
+            ) : null}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6 sm:pt-16">
+          <h2 className="mb-6 text-2xl font-bold text-gray-900">Photo gallery</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {excursion.gallery.map((image) => (
+              <figure
+                key={`${image.src}-${image.alt}`}
+                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100 shadow-sm"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="aspect-[4/3] h-full w-full object-cover"
+                />
+              </figure>
+            ))}
           </div>
         </section>
 
         <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="mx-auto max-w-3xl space-y-12 text-gray-700">
-            <ContentSection title="Photo gallery">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {excursion.gallery.map((image) => (
-                  <figure
-                    key={image.src}
-                    className="overflow-hidden rounded-xl border border-gray-200 shadow-sm"
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className="h-52 w-full object-cover sm:h-56"
-                    />
-                  </figure>
-                ))}
-              </div>
-            </ContentSection>
-
+          <div className="mx-auto max-w-3xl space-y-14 text-gray-700 sm:space-y-16">
             <ContentSection title="Highlights">
               <ul className="list-disc space-y-2 pl-5 leading-7">
                 {excursion.highlights.map((highlight) => (
@@ -228,12 +236,11 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
         <section className="border-y bg-gray-900 text-white">
           <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
             <h2 className="text-2xl font-bold sm:text-3xl">
-              Ready to book your Flam fjord cruise?
+              {excursion.ctaTitle ?? `Ready to book your ${excursion.title}?`}
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
-              Secure your sailing time before port day and explore more
-              cruise-friendly excursions designed around your ship&apos;s
-              timetable.
+              {excursion.ctaText ??
+                "Secure your place before port day and explore more cruise-friendly excursions designed around your ship's timetable."}
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link

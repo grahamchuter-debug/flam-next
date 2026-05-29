@@ -2,11 +2,16 @@ import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
-import { buildFaqSchema, buildWebPageSchema } from "@/lib/site-schema";
+import { buildFaqSchema, buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/site-schema";
 
 export type PageFaq = {
   question: string;
   answer: string;
+};
+
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
 };
 
 type RelatedLink = {
@@ -24,6 +29,8 @@ type ContentPageProps = {
   children: React.ReactNode;
   relatedLinks?: readonly RelatedLink[];
   faqs?: readonly PageFaq[];
+  breadcrumbs?: readonly BreadcrumbItem[];
+  belowHero?: React.ReactNode;
   ctaTitle?: string;
   ctaText?: string;
   ctaHref?: string;
@@ -40,6 +47,8 @@ export function ContentPage({
   children,
   relatedLinks,
   faqs,
+  breadcrumbs,
+  belowHero,
   ctaTitle = "Plan your Flam shore excursion",
   ctaText = "Browse cruise-friendly tours designed around your ship's time in port, with enough margin to return before all aboard.",
   ctaHref = "/flam-shore-excursions",
@@ -51,6 +60,9 @@ export function ContentPage({
       title,
       description: pageDescription,
     }),
+    ...(breadcrumbs && breadcrumbs.length > 0
+      ? [buildBreadcrumbSchema(breadcrumbs, pagePath)]
+      : []),
     ...(faqs && faqs.length > 0 ? [buildFaqSchema(faqs)] : []),
   ];
 
@@ -80,6 +92,8 @@ export function ContentPage({
             </div>
           </div>
         </section>
+
+        {belowHero}
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
           <div className="space-y-10 text-gray-700 [&_a]:font-medium [&_a]:text-blue-700 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-gray-900 [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">

@@ -67,3 +67,7 @@ export function loadFlamCruiseSchedule(month: ShipScheduleMonth): CruiseSchedule
 
   return entries.filter((entry) => entry.date.startsWith(month.monthKey));
 }
+
+export function countFlamCruiseSchedule(month: ShipScheduleMonth): number {
+  return loadFlamCruiseSchedule(month).length;
+}

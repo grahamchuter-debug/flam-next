@@ -3,10 +3,10 @@ import { buildShipScheduleMonthMetadata } from "@/lib/ship-schedule-month-page";
 
 export const dynamic = "force-dynamic";
 
-const monthSlug = "july-2026";
+const monthSlug = "august-2026";
 
 export const metadata = buildShipScheduleMonthMetadata(monthSlug);
 
-export default function July2026ShipSchedulePage() {
+export default function August2026ShipSchedulePage() {
   return <ShipScheduleMonthPage monthSlug={monthSlug} />;
 }

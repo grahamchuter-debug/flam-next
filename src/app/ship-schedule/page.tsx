@@ -6,9 +6,12 @@ import {
   ShipScheduleMonthCards,
 } from "@/components/ship-schedule-month-links";
 import { ShipScheduleShell } from "@/components/ship-schedule-shell";
+import { countFlamCruiseSchedule } from "@/lib/flam-cruise-schedule";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { shipScheduleHub } from "@/lib/ship-schedule-months";
+import { shipScheduleHub, shipScheduleMonths } from "@/lib/ship-schedule-months";
 import { buildWebPageSchema } from "@/lib/site-schema";
+
+export const dynamic = "force-dynamic";
 
 const pageMeta = {
   title: shipScheduleHub.title,
@@ -19,6 +22,13 @@ const pageMeta = {
 export const metadata: Metadata = buildPageMetadata(pageMeta);
 
 export default function ShipScheduleHubPage() {
+  const featuredMonths = shipScheduleMonths
+    .filter((month) => month.available)
+    .map((month) => ({
+      ...month,
+      shipCount: countFlamCruiseSchedule(month),
+    }));
+
   return (
     <>
       <JsonLd
@@ -54,7 +64,7 @@ export default function ShipScheduleHubPage() {
           </div>
 
           <div className="mt-10">
-            <ShipScheduleMonthCards />
+            <ShipScheduleMonthCards months={featuredMonths} />
           </div>
 
           <p className="mt-8 text-sm leading-6 text-gray-500">

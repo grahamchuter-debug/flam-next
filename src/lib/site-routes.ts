@@ -11,6 +11,16 @@ export const siteRoutes = [
     changeFrequency: "weekly" as const,
   },
   {
+    path: "/excursions/stegastein-viewpoint",
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+  },
+  {
+    path: "/excursions/flam-railway",
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+  },
+  {
     path: "/flam-port-guide",
     priority: 0.8,
     changeFrequency: "monthly" as const,
@@ -26,6 +36,11 @@ export const siteRoutes = [
     changeFrequency: "monthly" as const,
   },
   {
+    path: "/best-time-to-visit-flam",
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+  },
+  {
     path: "/ship-schedule",
     priority: 0.8,
     changeFrequency: "weekly" as const,
@@ -37,6 +52,16 @@ export const siteRoutes = [
   },
   {
     path: "/ship-schedule/july-2026",
+    priority: 0.7,
+    changeFrequency: "weekly" as const,
+  },
+  {
+    path: "/ship-schedule/august-2026",
+    priority: 0.7,
+    changeFrequency: "weekly" as const,
+  },
+  {
+    path: "/ship-schedule/september-2026",
     priority: 0.7,
     changeFrequency: "weekly" as const,
   },
