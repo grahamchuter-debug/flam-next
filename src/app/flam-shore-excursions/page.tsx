@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ContentPage } from "@/components/content-page";
+import { CruisePortDayPlanner } from "@/components/cruise-port-day-planner";
 import { buildPageMetadata } from "@/lib/site-metadata";
 import { siteImages } from "@/lib/site-images";
 
@@ -79,6 +80,8 @@ export default function FlamShoreExcursionsPage() {
           distances from your berth.
         </p>
       </section>
+
+      <CruisePortDayPlanner />
 
       <section>
         <h2>Naeroyfjord and Aurlandsfjord scenic cruises</h2>
