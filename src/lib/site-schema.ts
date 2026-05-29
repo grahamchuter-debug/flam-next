@@ -65,6 +65,31 @@ export function buildFaqSchema(
   };
 }
 
+export function buildBreadcrumbSchema(
+  items: readonly { label: string; href?: string }[],
+  currentPath?: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      const itemUrl = item.href
+        ? `${siteConfig.url}${item.href}`
+        : isLast && currentPath
+          ? `${siteConfig.url}${currentPath}`
+          : undefined;
+
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: item.label,
+        ...(itemUrl ? { item: itemUrl } : {}),
+      };
+    }),
+  };
+}
+
 export function buildItemListSchema(
   items: readonly { name: string; description: string }[],
 ) {

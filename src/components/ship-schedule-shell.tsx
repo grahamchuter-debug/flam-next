@@ -9,6 +9,9 @@ type ShipScheduleShellProps = {
   breadcrumbs: { label: string; href?: string }[];
   children: React.ReactNode;
   showReassurance?: boolean;
+  ctaTitle?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
 };
 
 export function ShipScheduleShell({
@@ -17,6 +20,9 @@ export function ShipScheduleShell({
   breadcrumbs,
   children,
   showReassurance = true,
+  ctaTitle = "See tours timed perfectly for your cruise visit",
+  ctaHref = "/excursions",
+  ctaLabel = "View shore excursions",
 }: ShipScheduleShellProps) {
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -49,14 +55,12 @@ export function ShipScheduleShell({
 
       <section className="border-y bg-gray-900 text-white">
         <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            See tours timed perfectly for your cruise visit
-          </h2>
+          <h2 className="text-2xl font-bold sm:text-3xl">{ctaTitle}</h2>
           <Link
-            href="/excursions"
+            href={ctaHref}
             className="mt-6 inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
           >
-            View shore excursions
+            {ctaLabel}
           </Link>
         </div>
       </section>

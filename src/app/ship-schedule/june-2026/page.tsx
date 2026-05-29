@@ -30,7 +30,7 @@ const pageMeta = {
 export const metadata: Metadata = buildPageMetadata(pageMeta);
 
 export default function June2026ShipSchedulePage() {
-  const schedule = loadFlamCruiseSchedule(month.monthKey);
+  const schedule = loadFlamCruiseSchedule(month);
 
   return (
     <>

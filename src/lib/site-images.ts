@@ -7,4 +7,6 @@ export const siteImages = {
     "https://upload.wikimedia.org/wikipedia/commons/2/21/Stegastein_viewpoint_showing_Aurlandsfjord.jpg",
   flamRailway:
     "https://upload.wikimedia.org/wikipedia/commons/1/1e/Fl%C3%A5msbana_-_Crowned_the_most_beautiful_train_journey_in_the_world_%2832021608906%29.jpg",
+  naeroyfjord:
+    "https://upload.wikimedia.org/wikipedia/commons/3/3c/Naeroyfjord_-_Norway.jpg",
 } as const;

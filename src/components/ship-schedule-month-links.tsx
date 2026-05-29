@@ -78,7 +78,7 @@ export function ShipScheduleMonthCards({
             <p className="flex-1 text-sm leading-6 text-gray-600">
               {month.available
                 ? "View every cruise call in Flam for this month and plan shore excursions around your ship's hours ashore."
-                : "We are preparing the July 2026 cruise ship timetable. Check back soon or browse June 2026 in the meantime."}
+                : `We are preparing the ${month.label} cruise ship timetable. Check back soon or browse an available month in the meantime.`}
             </p>
             <Link
               href={getShipScheduleMonthPath(month.slug)}

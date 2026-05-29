@@ -1,0 +1,279 @@
+import Link from "next/link";
+
+import { JsonLd } from "@/components/json-ld";
+import { ShipScheduleBreadcrumbs } from "@/components/ship-schedule-breadcrumbs";
+import type { ExcursionData } from "@/lib/excursion-types";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildWebPageSchema,
+} from "@/lib/site-schema";
+
+type ExcursionDetailPageProps = {
+  excursion: ExcursionData;
+};
+
+function ContentSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="space-y-4">
+      <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
+  const schema = [
+    buildWebPageSchema({
+      path: excursion.path,
+      title: `${excursion.metaTitle} | Flam Shore Excursions`,
+      description: excursion.metaDescription,
+    }),
+    buildBreadcrumbSchema(excursion.breadcrumbs, excursion.path),
+    buildFaqSchema(excursion.faqs),
+  ];
+
+  return (
+    <>
+      <JsonLd data={schema} />
+      <main className="min-h-screen bg-white text-gray-900">
+        <ShipScheduleBreadcrumbs items={excursion.breadcrumbs} />
+
+        <section
+          role="img"
+          aria-label={excursion.heroImageAlt}
+          className="relative bg-cover bg-center"
+          style={{ backgroundImage: `url('${excursion.heroImage}')` }}
+        >
+          <div className="bg-black/55">
+            <div className="mx-auto max-w-6xl px-4 py-16 text-white sm:px-6 sm:py-20">
+              <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+                {excursion.headline}
+              </h1>
+              <p className="max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
+                {excursion.lead}
+              </p>
+              <p className="mt-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm">
+                Return to ship on time — cruise passenger friendly
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href={excursion.bookingHref ?? "/flam-shore-excursions"}
+                  className="inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:text-base"
+                >
+                  {excursion.bookingLabel ?? "Book this excursion"}
+                </Link>
+                <Link
+                  href="/flam-shore-excursions"
+                  className="inline-block rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/20 sm:text-base"
+                >
+                  View all excursions
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b bg-gray-50">
+          <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Duration
+                </p>
+                <p className="mt-2 text-base font-medium text-gray-900">
+                  {excursion.summary.duration}
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Meeting point
+                </p>
+                <p className="mt-2 text-base font-medium text-gray-900">
+                  {excursion.summary.meetingPoint}
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Return to ship
+                </p>
+                <p className="mt-2 text-base font-medium text-gray-900">
+                  {excursion.summary.returnReassurance}
+                </p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  Best for
+                </p>
+                <p className="mt-2 text-base font-medium text-gray-900">
+                  {excursion.summary.bestFor}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <article className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+          <div className="mx-auto max-w-3xl space-y-12 text-gray-700">
+            <ContentSection title="Photo gallery">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {excursion.gallery.map((image) => (
+                  <figure
+                    key={image.src}
+                    className="overflow-hidden rounded-xl border border-gray-200 shadow-sm"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="h-52 w-full object-cover sm:h-56"
+                    />
+                  </figure>
+                ))}
+              </div>
+            </ContentSection>
+
+            <ContentSection title="Highlights">
+              <ul className="list-disc space-y-2 pl-5 leading-7">
+                {excursion.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </ContentSection>
+
+            <ContentSection title="About this tour">
+              <div className="space-y-4 leading-7">
+                {excursion.description.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </ContentSection>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <ContentSection title="What's included">
+                <ul className="list-disc space-y-2 pl-5 leading-7">
+                  {excursion.included.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </ContentSection>
+
+              <ContentSection title="What's not included">
+                <ul className="list-disc space-y-2 pl-5 leading-7">
+                  {excursion.notIncluded.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </ContentSection>
+            </div>
+
+            <ContentSection title="Cruise passenger timing advice">
+              <div className="space-y-4 leading-7">
+                {excursion.timingAdvice.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              <p className="leading-7">
+                Check the{" "}
+                <Link
+                  href="/ship-schedule"
+                  className="font-medium text-blue-700 underline underline-offset-2"
+                >
+                  Flam ship schedule
+                </Link>
+                , read the{" "}
+                <Link
+                  href="/flam-port-guide"
+                  className="font-medium text-blue-700 underline underline-offset-2"
+                >
+                  port guide
+                </Link>
+                , and plan your day with our{" "}
+                <Link
+                  href="/one-day-in-flam"
+                  className="font-medium text-blue-700 underline underline-offset-2"
+                >
+                  one day in Flam
+                </Link>{" "}
+                itinerary.
+              </p>
+            </ContentSection>
+          </div>
+        </article>
+
+        <section className="border-t bg-gray-50">
+          <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+            <h2 className="mb-6 text-2xl font-bold text-gray-900">
+              Frequently asked questions
+            </h2>
+            <dl className="space-y-6">
+              {excursion.faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <dt className="font-semibold text-gray-900">{faq.question}</dt>
+                  <dd className="mt-2 leading-7 text-gray-700">{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        <section className="border-y bg-gray-900 text-white">
+          <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              Ready to book your Flam fjord cruise?
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
+              Secure your sailing time before port day and explore more
+              cruise-friendly excursions designed around your ship&apos;s
+              timetable.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                href={excursion.bookingHref ?? "/flam-shore-excursions"}
+                className="inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
+              >
+                {excursion.bookingLabel ?? "Book this excursion"}
+              </Link>
+              <Link
+                href="/flam-shore-excursions"
+                className="inline-block rounded-full border border-white/30 px-6 py-3 text-sm font-semibold transition hover:bg-white/10 sm:px-8 sm:py-3.5 sm:text-base"
+              >
+                View all shore excursions
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {excursion.relatedLinks.length > 0 ? (
+          <section className="bg-gray-50">
+            <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+              <h2 className="mb-4 text-xl font-bold text-gray-900">
+                Plan your Flam port day
+              </h2>
+              <ul className="flex flex-wrap gap-3">
+                {excursion.relatedLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
+      </main>
+    </>
+  );
+}

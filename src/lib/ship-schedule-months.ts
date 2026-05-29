@@ -5,6 +5,7 @@ export type ShipScheduleMonth = {
   description: string;
   available: boolean;
   monthKey: string;
+  csvFile: string;
 };
 
 export const shipScheduleHub = {
@@ -23,6 +24,7 @@ export const shipScheduleMonths: ShipScheduleMonth[] = [
       "View the Flam cruise ship schedule for June 2026 including arrival times, departure times, and cruise lines visiting Flam, Norway.",
     available: true,
     monthKey: "2026-06",
+    csvFile: "flam-cruise-schedule-2026.csv",
   },
   {
     slug: "july-2026",
@@ -30,8 +32,9 @@ export const shipScheduleMonths: ShipScheduleMonth[] = [
     title: "Flam Cruise Ship Schedule July 2026",
     description:
       "View the Flam cruise ship schedule for July 2026 including arrival times, departure times, and cruise lines visiting Flam, Norway.",
-    available: false,
+    available: true,
     monthKey: "2026-07",
+    csvFile: "flam-cruise-schedule-july-2026.csv",
   },
 ];
 

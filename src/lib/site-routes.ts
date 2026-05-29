@@ -6,6 +6,11 @@ export const siteRoutes = [
     changeFrequency: "weekly" as const,
   },
   {
+    path: "/excursions/flam-fjord-cruise",
+    priority: 0.9,
+    changeFrequency: "weekly" as const,
+  },
+  {
     path: "/flam-port-guide",
     priority: 0.8,
     changeFrequency: "monthly" as const,

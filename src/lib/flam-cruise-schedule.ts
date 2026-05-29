@@ -2,13 +2,11 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 
 import type { CruiseScheduleEntry } from "@/lib/flam-cruise-schedule-types";
+import type { ShipScheduleMonth } from "@/lib/ship-schedule-months";
 
 export type { CruiseScheduleEntry } from "@/lib/flam-cruise-schedule-types";
 
-const CSV_PATH = path.join(
-  process.cwd(),
-  "public/data/flam-cruise-schedule-2026.csv",
-);
+const DATA_DIR = path.join(process.cwd(), "public/data");
 
 function parseCsvLine(line: string): string[] {
   const values: string[] = [];
@@ -36,8 +34,7 @@ function parseCsvLine(line: string): string[] {
   return values;
 }
 
-export function loadFlamCruiseSchedule(monthKey?: string): CruiseScheduleEntry[] {
-  const raw = readFileSync(CSV_PATH, "utf-8");
+function parseCsvEntries(raw: string): CruiseScheduleEntry[] {
   const lines = raw
     .split(/\r?\n/)
     .map((line) => line.trim())
@@ -47,21 +44,26 @@ export function loadFlamCruiseSchedule(monthKey?: string): CruiseScheduleEntry[]
     return [];
   }
 
-  const entries = lines.slice(1).map((line) => {
-    const [date, ship, arrival, departure, cruiseLine = ""] = parseCsvLine(line);
+  return lines
+    .slice(1)
+    .map((line) => {
+      const [date, ship, arrival, departure, cruiseLine = ""] = parseCsvLine(line);
 
-    return {
-      date,
-      ship,
-      arrival,
-      departure,
-      cruiseLine: cruiseLine.trim(),
-    };
-  });
+      return {
+        date,
+        ship,
+        arrival,
+        departure,
+        cruiseLine: cruiseLine.trim(),
+      };
+    })
+    .filter((entry) => entry.date && entry.ship);
+}
 
-  if (!monthKey) {
-    return entries;
-  }
+export function loadFlamCruiseSchedule(month: ShipScheduleMonth): CruiseScheduleEntry[] {
+  const csvPath = path.join(DATA_DIR, month.csvFile);
+  const raw = readFileSync(csvPath, "utf-8");
+  const entries = parseCsvEntries(raw);
 
-  return entries.filter((entry) => entry.date.startsWith(monthKey));
+  return entries.filter((entry) => entry.date.startsWith(month.monthKey));
 }

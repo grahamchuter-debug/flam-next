@@ -6,7 +6,7 @@ type BreadcrumbItem = {
 };
 
 type ShipScheduleBreadcrumbsProps = {
-  items: BreadcrumbItem[];
+  items: readonly BreadcrumbItem[];
 };
 
 export function ShipScheduleBreadcrumbs({

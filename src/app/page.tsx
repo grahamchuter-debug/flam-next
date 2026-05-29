@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
 import { buildPageMetadata } from "@/lib/site-metadata";
@@ -137,9 +138,12 @@ export default function Home() {
                   through the Naeroyfjord from Flam.
                 </p>
 
-                <button className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black">
+                <Link
+                  href="/excursions/flam-fjord-cruise"
+                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
+                >
                   View Tour
-                </button>
+                </Link>
               </div>
             </article>
 
@@ -199,6 +203,36 @@ export default function Home() {
               and fjord cruise piers. Book popular excursions early on busy days, and
               allow time to return before all aboard.
             </p>
+          </div>
+        </section>
+
+        <section className="border-t bg-white">
+          <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+            <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
+              Check your ship time before booking
+            </h2>
+            <p className="mb-6 text-base leading-8 text-gray-700 sm:text-lg">
+              Match excursions to your arrival and departure times so you can enjoy
+              Flam and still return before all aboard.
+            </p>
+            <ul className="flex flex-wrap gap-3">
+              <li>
+                <Link
+                  href="/ship-schedule/june-2026"
+                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
+                >
+                  June 2026 schedule
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ship-schedule/july-2026"
+                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
+                >
+                  July 2026 schedule
+                </Link>
+              </li>
+            </ul>
           </div>
         </section>
       </main>
