@@ -51,12 +51,12 @@ export default function ShipScheduleHubPage() {
             <p className="text-base leading-7 sm:text-lg">
               Flam welcomes cruise ships throughout the summer season. Use these
               monthly timetables to see which vessels call at the port, when
-              they arrive, and when they depart — so you can book excursions with
+              they arrive, and when they depart, so you can book excursions with
               enough time to return before all aboard.
             </p>
             <p className="text-base leading-7 sm:text-lg">
               Select a month below to view the full schedule. Times are
-              indicative for planning — always confirm final port times on your
+              indicative for planning, always confirm final port times on your
               cruise line app.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function ShipScheduleHubPage() {
             >
               cruise ship schedule guide
             </Link>{" "}
-            for tips on busy fjord days and return-to-ship timing.
+            for tips on busy fjord days and return to ship timing.
           </p>
         </section>
       </ShipScheduleShell>

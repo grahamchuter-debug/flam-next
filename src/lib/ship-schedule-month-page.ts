@@ -26,7 +26,7 @@ export function getShipScheduleMonthOverview(month: ShipScheduleMonth): string {
 
 export function getShipScheduleMonthPlanning(month: ShipScheduleMonth): string[] {
   return [
-    `Use this ${month.label} schedule to match Flam shore excursions to your ship's hours ashore. Treat your cruise line app as the source of truth for all-aboard times — build a personal buffer of 30–45 minutes before that deadline.`,
+    `Use this ${month.label} schedule to match Flam shore excursions to your ship's hours ashore. Treat your cruise line app as the source of truth for all aboard times, build a personal buffer of 30 to 45 minutes before that deadline.`,
     `On busy days when multiple ships call Flam, disembark early and head straight to your excursion meeting point. Compare overlapping calls across months if your itinerary is flexible.`,
     `Times listed here are indicative for planning. Weather, fjord traffic, and operational changes can shift arrival or departure after schedules are published.`,
   ];

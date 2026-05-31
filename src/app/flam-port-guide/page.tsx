@@ -33,17 +33,17 @@ const faqs = [
   {
     question: "Do cruise ships tender in Flam or dock at the pier?",
     answer:
-      "Most vessels dock alongside the Flam waterfront or dedicated cruise pier. Tender operations are less common but can occur — check your cruise app on the morning of arrival for the final method.",
+      "Most vessels dock alongside the Flam waterfront or dedicated cruise pier. Tender operations are less common but can occur, check your cruise app on the morning of arrival for the final method.",
   },
   {
-    question: "Are there restrooms and Wi-Fi near the Flam cruise port?",
+    question: "Are there restrooms and WiFi near the Flam cruise port?",
     answer:
-      "Yes. Restrooms, cafés, and visitor services sit near the station and harbour front. Free Wi-Fi is available in much of the village centre, though speeds vary on busy turnaround days.",
+      "Yes. Restrooms, cafés, and visitor services sit near the station and harbour front. Free WiFi is available in much of the village centre, though speeds vary on busy port days.",
   },
   {
     question: "How early should cruise passengers return to the ship in Flam?",
     answer:
-      "Plan to be back at the gangway at least 30–45 minutes before all aboard. Queues for the railway, fjord cruises, and security screening can eat into that buffer on peak summer days.",
+      "Plan to be back at the gangway at least 30 to 45 minutes before all aboard. Queues for the railway, fjord cruises, and security screening can eat into that buffer on peak summer days.",
   },
 ] as const;
 
@@ -51,7 +51,7 @@ export default function FlamPortGuidePage() {
   return (
     <ContentPage
       title="Flam Port Guide for Cruise Passengers"
-      lead="Everything you need to navigate Flam cruise port — pier location, walking routes, facilities, and how to reach shore excursions without losing precious port time."
+      lead="Everything you need to navigate Flam cruise port, pier location, walking routes, facilities, and how to reach shore excursions without losing precious port time."
       heroImage={pageMeta.ogImage}
       heroImageAlt={pageMeta.ogImageAlt}
       pagePath={pageMeta.path}
@@ -62,8 +62,8 @@ export default function FlamPortGuidePage() {
       <section>
         <h2>Where cruise ships dock in Flam</h2>
         <p>
-          Flam is a deep-water fjord port built for tourism. Large cruise ships
-          typically berth along the village waterfront or at the purpose-built
+          Flam is a deep water fjord port built for tourism. Large cruise ships
+          typically berth along the village waterfront or at the purpose built
           cruise pier near Flamsbrygga and the railway station. From most
           gangways you can see the Aurlandsfjord, excursion boats, and the red
           Flamsbana trains waiting at the platform.
@@ -81,7 +81,7 @@ export default function FlamPortGuidePage() {
         <h2>Walking from the pier to key locations</h2>
         <ul>
           <li>
-            <strong>Flam Railway Station:</strong> 5–10 minutes on foot from most
+            <strong>Flam Railway Station:</strong> 5 to 10 minutes on foot from most
             berths
           </li>
           <li>
@@ -98,7 +98,7 @@ export default function FlamPortGuidePage() {
           </li>
         </ul>
         <p>
-          Flam village is flat and compact — ideal for cruise passengers with
+          Flam village is flat and compact, ideal for cruise passengers with
           limited mobility who still want easy access to the main sights.
         </p>
       </section>
@@ -107,13 +107,13 @@ export default function FlamPortGuidePage() {
         <h2>Port facilities cruise passengers use most</h2>
         <p>
           You will find ticket desks for the Flamsbana and fjord cruises, souvenir
-          shops, bakeries, sit-down restaurants, and a small grocery store. Card
+          shops, bakeries, sit down restaurants, and a small grocery store. Card
           payments are widely accepted, but contactless speeds up purchases when
           queues form after multiple ships arrive.
         </p>
         <ul>
           <li>Flamsbana ticket office at the railway station</li>
-          <li>Fjord cruise check-in along the waterfront</li>
+          <li>Fjord cruise check in along the waterfront</li>
           <li>ATM and banking services in the village centre</li>
           <li>Public restrooms near the harbour and visitor areas</li>
         </ul>
@@ -125,7 +125,7 @@ export default function FlamPortGuidePage() {
           Docking is the norm in Flam, which means you walk straight ashore without
           waiting for tender boats. If your captain anchors in the fjord instead,
           follow crew instructions for tender boarding and allow extra time both
-          directions — tender queues can delay your return to ship on time if you
+          directions, tender queues can delay your return to ship on time if you
           cut it too close.
         </p>
       </section>
@@ -133,7 +133,7 @@ export default function FlamPortGuidePage() {
       <section>
         <h2>Meeting shore excursions at the port</h2>
         <p>
-          Ship-sponsored tours usually gather at signed meeting points near the
+          Ship sponsored tours usually gather at signed meeting points near the
           gangway or on the quay. Independent operators often instruct guests to
           meet at Flam station or a numbered bus bay. Read your voucher carefully
           the night before and screenshot directions in case mobile signal is slow.
@@ -141,12 +141,12 @@ export default function FlamPortGuidePage() {
         <p>
           Ready to pick a tour? Browse our{" "}
           <Link href="/flam-shore-excursions">Flam shore excursions</Link> guide
-          for cruise-friendly options that start close to the pier.
+          for cruise friendly options that start close to the pier.
         </p>
       </section>
 
       <section>
-        <h2>Busy port days and return-to-ship planning</h2>
+        <h2>Busy port days and return to ship planning</h2>
         <p>
           When two or more large ships visit Flam on the same day, expect longer
           queues at the railway, crowded cafés, and slower walking through the

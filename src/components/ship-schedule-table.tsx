@@ -169,7 +169,7 @@ export function ShipScheduleTable({ entries }: ShipScheduleTableProps) {
                     {entry.departure}
                   </td>
                   <td className="whitespace-nowrap px-4 py-3 text-gray-700">
-                    {entry.cruiseLine || "—"}
+                    {entry.cruiseLine || "Not listed"}
                   </td>
                 </tr>
               ))

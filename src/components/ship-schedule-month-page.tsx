@@ -73,7 +73,7 @@ export function ShipScheduleMonthPage({ monthSlug }: ShipScheduleMonthPageProps)
 
           <p className="mt-6 text-sm leading-6 text-gray-500">
             Times are indicative for planning purposes. Your cruise line app
-            remains the authoritative source for arrival, all-aboard, and
+            remains the authoritative source for arrival, all aboard, and
             departure.
           </p>
 

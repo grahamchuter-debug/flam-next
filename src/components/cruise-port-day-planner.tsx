@@ -166,7 +166,7 @@ export function CruisePortDayPlanner({
                       Recommended return to port
                     </dt>
                     <dd className="mt-1 text-lg font-semibold text-blue-800">
-                      {result.returnGuidance.recommendedReturn ?? "—"}
+                      {result.returnGuidance.recommendedReturn ?? "Not set"}
                     </dd>
                     <dd className="text-xs text-gray-500">45 min before departure</dd>
                   </div>
@@ -175,7 +175,7 @@ export function CruisePortDayPlanner({
                       Latest comfortable return
                     </dt>
                     <dd className="mt-1 text-lg font-semibold text-gray-900">
-                      {result.returnGuidance.latestComfortableReturn ?? "—"}
+                      {result.returnGuidance.latestComfortableReturn ?? "Not set"}
                     </dd>
                     <dd className="text-xs text-gray-500">30 min before departure</dd>
                   </div>

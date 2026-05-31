@@ -109,9 +109,9 @@ export default function Home() {
 
           <p className="text-base leading-8 text-gray-700 sm:text-lg">
             Welcome to Flam Shore Excursions, your specialist guide to Norway cruise
-            experiences. Discover scenic fjord cruises on the UNESCO-listed
+            experiences. Discover scenic fjord cruises on the UNESCO listed
             Naeroyfjord, breathtaking viewpoints like Stegastein above the
-            Aurlandsfjord, mountain railways and small-group tours carefully
+            Aurlandsfjord, mountain railways and small group tours carefully
             selected for cruise ship guests visiting Flam.
           </p>
         </section>

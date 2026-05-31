@@ -9,7 +9,7 @@ import { siteImages } from "@/lib/site-images";
 const pageMeta = {
   title: "Flam Shore Excursions for Cruise Passengers",
   description:
-    "Compare Flam shore excursions for cruise ships: Naeroyfjord cruises, Stegastein tours, and Flamsbana railway trips with return-to-ship timing advice.",
+    "Compare Flam shore excursions for cruise ships: Naeroyfjord cruises, Stegastein tours, and Flamsbana railway trips with return to ship timing advice.",
   path: "/flam-shore-excursions",
   ogImage: siteImages.fjordCruise,
   ogImageAlt:
@@ -29,12 +29,12 @@ const faqs = [
   {
     question: "Should cruise passengers book Flam excursions in advance?",
     answer:
-      "Yes on busy summer days when several ships share the fjord. Pre-booking the Flamsbana, Naeroyfjord cruises, and Stegastein tours secures your departure slot and helps you return to ship on time without last-minute queue stress.",
+      "Yes on busy summer days when several ships share the fjord. Booking ahead the Flamsbana, Naeroyfjord cruises, and Stegastein tours secures your departure slot and helps you return to ship on time without last minute queue stress.",
   },
   {
     question: "How long do the most popular Flam shore excursions take?",
     answer:
-      "A round-trip Flamsbana journey typically takes about two hours. Naeroyfjord scenic cruises often need three to four hours including boarding. Stegastein bus tours usually run two to three hours from the Flam pier.",
+      "A round trip Flamsbana journey typically takes about two hours. Naeroyfjord scenic cruises often need three to four hours including boarding. Stegastein bus tours usually run two to three hours from the Flam pier.",
   },
   {
     question: "Can I explore Flam independently as a cruise passenger?",
@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "Do Flam tours guarantee return to the cruise ship?",
     answer:
-      "Ship-sponsored excursions usually include a ship guarantee. Independent tickets do not — you are responsible for meeting your vessel's departure. Always confirm all-aboard time on your cruise app before booking.",
+      "Ship sponsored excursions usually include a ship guarantee. Independent tickets do not, you are responsible for meeting your vessel's departure. Always confirm all aboard time on your cruise app before booking.",
   },
 ] as const;
 
@@ -52,7 +52,7 @@ export default function FlamShoreExcursionsPage() {
   return (
     <ContentPage
       title="Flam Shore Excursions"
-      lead="Hand-picked fjord tours and experiences for cruise ship guests, planned with enough buffer time to return to your ship on schedule."
+      lead="Hand picked fjord tours and experiences for cruise ship guests, planned with enough buffer time to return to your ship on schedule."
       heroImage={pageMeta.ogImage}
       heroImageAlt={pageMeta.ogImageAlt}
       pagePath={pageMeta.path}
@@ -69,7 +69,7 @@ export default function FlamShoreExcursionsPage() {
           Flam sits at the head of the Aurlandsfjord, so cruise passengers step
           off the gangway straight into Norway&apos;s most famous fjord scenery.
           Excursion piers, the Flamsbana railway, and visitor services cluster
-          around the port — meaning less transfer time and more time for the
+          around the port, meaning less transfer time and more time for the
           experiences that matter to you.
         </p>
         <p>
@@ -92,7 +92,7 @@ export default function FlamShoreExcursionsPage() {
           cliffs, waterfalls, and farmsteads clinging to the shoreline.
         </p>
         <ul>
-          <li>Best for first-time visitors who want iconic fjord photos</li>
+          <li>Best for first time visitors who want iconic fjord photos</li>
           <li>Typical duration: three to four hours round trip from Flam</li>
           <li>Boarding is a short walk from most cruise piers</li>
           <li>Allow 45 minutes before all aboard for disembarkation queues</li>
@@ -124,7 +124,7 @@ export default function FlamShoreExcursionsPage() {
           minutes from the pier.
         </p>
         <ul>
-          <li>Round trip Flam–Myrdal–Flam takes roughly two hours</li>
+          <li>Round trip Flam to Myrdal to Flam takes roughly two hours</li>
           <li>Trains stop at Kjosfossen for photos during the summer season</li>
           <li>Tickets sell out quickly when multiple ships are in port</li>
           <li>Ideal when you want a structured, timed return to the village</li>
@@ -134,17 +134,17 @@ export default function FlamShoreExcursionsPage() {
       <section>
         <h2>How to choose the right excursion for your port time</h2>
         <p>
-          Match the tour to the hours your cruise line guarantees ashore — not
+          Match the tour to the hours your cruise line guarantees ashore, not
           just the published arrival time. Late arrivals and early departures
           happen, especially in fjord piloting conditions.
         </p>
         <ul>
           <li>
-            <strong>4–5 hours in port:</strong> choose one highlight — railway
+            <strong>4 to 5 hours in port:</strong> choose one highlight, railway
             or fjord cruise
           </li>
           <li>
-            <strong>6–7 hours:</strong> railway plus village time, or a shorter
+            <strong>6 to 7 hours:</strong> railway plus village time, or a shorter
             viewpoint tour
           </li>
           <li>
@@ -163,9 +163,9 @@ export default function FlamShoreExcursionsPage() {
       <section>
         <h2>Booking tips for cruise passengers</h2>
         <p>
-          Ship-sponsored excursions cost more but usually include a guarantee that
+          Ship sponsored excursions cost more but usually include a guarantee that
           the operator will get you back before departure. Independent bookings
-          save money yet require you to watch the clock yourself — build at least
+          save money yet require you to watch the clock yourself, build at least
           45 minutes of buffer before all aboard.
         </p>
         <p>

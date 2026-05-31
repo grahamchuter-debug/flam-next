@@ -27,7 +27,7 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
   heading: "Flam Cruise Smart Planner",
   subtitle: "Plan your shore excursions around your actual time in port.",
   returnBufferNote:
-    "Always confirm your cruise line's official all-aboard time, as this may be earlier than the published departure time.",
+    "Always confirm your cruise line's official all aboard time, as this may be earlier than the published departure time.",
   tiers: [
     {
       minHours: 0,
@@ -45,18 +45,18 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
       dayPlan: [
         "Disembark promptly and stay close to the pier",
         "Choose one short activity: village stroll or quick photo stop",
-        "Skip longer railway or fjord tours — not enough margin to return safely",
+        "Skip longer railway or fjord tours, not enough margin to return safely",
         "Be back at the gangway by your recommended return time",
       ],
     },
     {
       minHours: 4,
       maxHours: 6,
-      label: "4–6 hours",
+      label: "4 to 6 hours",
       confidenceScore: 6,
       confidenceLabel: "Moderate Port Call",
       confidenceMessage:
-        "Good for shorter Flam excursions with a sensible return-to-ship buffer.",
+        "Good for shorter Flam excursions with a sensible return to ship buffer.",
       excursions: [
         { label: "Stegastein Viewpoint", href: "/excursions/stegastein-viewpoint" },
         { label: "Flam Railway", href: "/excursions/flam-railway" },
@@ -67,19 +67,19 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
       ],
       dayPlan: [
         "Arrive in Flam and head straight to your excursion meeting point",
-        "Morning or early afternoon: one main excursion — railway or Stegastein",
-        "Allow time to return to the pier with your 45-minute buffer",
+        "Morning or early afternoon: one main excursion, railway or Stegastein",
+        "Allow time to return to the pier with your 45 minute buffer",
         "Skip stacking a second major tour unless times are confirmed tight",
       ],
     },
     {
       minHours: 6,
       maxHours: 10,
-      label: "6–10 hours",
+      label: "6 to 10 hours",
       confidenceScore: 9,
       confidenceLabel: "Excellent Port Call",
       confidenceMessage:
-        "Plenty of time for most Flam shore excursions with comfortable return-to-ship margins.",
+        "Plenty of time for most Flam shore excursions with comfortable return to ship margins.",
       excursions: [
         { label: "Fjord Cruise", href: "/excursions/flam-fjord-cruise" },
         { label: "Flam Railway", href: "/excursions/flam-railway" },

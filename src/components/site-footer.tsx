@@ -21,11 +21,11 @@ const cruiseToolsLinks = [
 const whyBookWithUs = [
   "Cruise passenger friendly",
   "Return to ship timing guidance",
-  "Fjord-focused local planning",
+  "Fjord focused local planning",
 ] as const;
 
 const trustBullets = [
-  "Return-to-ship friendly itineraries",
+  "Return to ship friendly itineraries",
   "Cruise passenger focused guides",
   "Updated 2026 ship schedules",
 ] as const;

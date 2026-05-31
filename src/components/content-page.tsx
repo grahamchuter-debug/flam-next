@@ -50,7 +50,7 @@ export function ContentPage({
   breadcrumbs,
   belowHero,
   ctaTitle = "Plan your Flam shore excursion",
-  ctaText = "Browse cruise-friendly tours designed around your ship's time in port, with enough margin to return before all aboard.",
+  ctaText = "Browse cruise friendly tours designed around your ship's time in port, with enough margin to return before all aboard.",
   ctaHref = "/flam-shore-excursions",
   showShipReassurance = true,
 }: ContentPageProps) {
@@ -86,7 +86,7 @@ export function ContentPage({
               </p>
               {showShipReassurance ? (
                 <p className="mt-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm">
-                  Return to ship on time — cruise passenger friendly
+                  Return to ship on time, cruise passenger friendly
                 </p>
               ) : null}
             </div>

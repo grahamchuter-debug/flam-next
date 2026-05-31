@@ -78,7 +78,7 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
               <p
                 className={`${excursion.heroBadge ? "mt-3" : "mt-5"} inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm`}
               >
-                Return to ship on time — cruise passenger friendly
+                Return to ship on time, cruise passenger friendly
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -240,7 +240,7 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
               {excursion.ctaText ??
-                "Secure your place before port day and explore more cruise-friendly excursions designed around your ship's timetable."}
+                "Secure your place before port day and explore more cruise friendly excursions designed around your ship's timetable."}
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link

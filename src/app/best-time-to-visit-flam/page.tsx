@@ -9,7 +9,7 @@ import { siteImages } from "@/lib/site-images";
 const pageMeta = {
   title: "Best Time to Visit Flam on a Cruise",
   description:
-    "Definitive guide for cruise passengers on the best time to visit Flam, Norway — weather by month, peak season crowds, shore excursions, and photography tips.",
+    "Definitive guide for cruise passengers on the best time to visit Flam, Norway, weather by month, peak season crowds, shore excursions, and photography tips.",
   path: "/best-time-to-visit-flam",
   ogImage: siteImages.naeroyfjord,
   ogImageAlt:
@@ -35,12 +35,12 @@ const faqs = [
   {
     question: "What is the best month to visit Flam?",
     answer:
-      "June is the best overall month for most cruise passengers. You get long daylight, reliable excursion operations, comfortable temperatures, and world-class fjord scenery — with slightly less peak crowding than July.",
+      "June is the best overall month for most cruise passengers. You get long daylight, reliable excursion operations, comfortable temperatures, and world class fjord scenery, with slightly less peak crowding than July.",
   },
   {
     question: "Is Flam crowded in July?",
     answer:
-      "July is the busiest month on the Norwegian fjords cruise calendar. Multiple ships often call Flam on the same day, which can mean queues at the railway and fuller fjord boats. Arrive ashore early and pre-book excursions to manage the crowds.",
+      "July is the busiest month on the Norwegian fjords cruise calendar. Multiple ships often call Flam on the same day, which can mean queues at the railway and fuller fjord boats. Arrive ashore early and book in advance excursions to manage the crowds.",
   },
   {
     question: "Does it rain often in Flam?",
@@ -50,55 +50,55 @@ const faqs = [
   {
     question: "Are shore excursions available all season?",
     answer:
-      "Core excursions — the Flamsbana, Naeroyfjord cruises, and Stegastein tours — run from May through September when cruise ships call Flam. May and September may have slightly reduced frequency, so pre-booking is wise on shoulder-season sailings.",
+      "Core excursions, the Flamsbana, Naeroyfjord cruises, and Stegastein tours, run from May through September when cruise ships call Flam. May and September may have slightly reduced frequency, so booking ahead is wise on shoulder season sailings.",
   },
   {
     question: "How long do cruise ships stay in Flam?",
     answer:
-      "Most cruise ships spend 6–10 hours in Flam, though some calls are shorter. Typical arrival windows are morning to mid-morning, with departure in the late afternoon or early evening. Check your ship's schedule and our monthly timetables for exact times.",
+      "Most cruise ships spend 6 to 10 hours in Flam, though some calls are shorter. Typical arrival windows are morning to mid morning, with departure in the late afternoon or early evening. Check your ship's schedule and our monthly timetables for exact times.",
   },
 ] as const;
 
 const weatherByMonth = [
   {
     month: "May",
-    temperature: "6–14°C (43–57°F)",
-    daylight: "15–18 hours",
-    traffic: "Low to moderate — season opening",
+    temperature: "6 to 14°C (43 to 57°F)",
+    daylight: "15 to 18 hours",
+    traffic: "Low to moderate, season opening",
     excursion:
-      "Flamsbana and early-season fjord cruises; fewer competing ships",
+      "Flamsbana and early season fjord cruises; fewer competing ships",
   },
   {
     month: "June",
-    temperature: "9–17°C (48–63°F)",
-    daylight: "18–19 hours",
-    traffic: "High — 17 scheduled calls in June 2026",
+    temperature: "9 to 17°C (48 to 63°F)",
+    daylight: "18 to 19 hours",
+    traffic: "High, 17 scheduled calls in June 2026",
     excursion:
       "All excursions at full operation; ideal for railway and fjord combos",
   },
   {
     month: "July",
-    temperature: "11–20°C (52–68°F)",
+    temperature: "11 to 20°C (52 to 68°F)",
     daylight: "18 hours",
-    traffic: "Peak — 21 scheduled calls in July 2026",
+    traffic: "Peak, 21 scheduled calls in July 2026",
     excursion:
       "Book ahead; fjord cruises and Stegastein for warmest weather",
   },
   {
     month: "August",
-    temperature: "10–18°C (50–64°F)",
-    daylight: "15–16 hours",
-    traffic: "High — 18 scheduled calls in August 2026",
+    temperature: "10 to 18°C (50 to 64°F)",
+    daylight: "15 to 16 hours",
+    traffic: "High, 18 scheduled calls in August 2026",
     excursion:
-      "Fjord cruises and viewpoint tours; still busy but family-friendly",
+      "Fjord cruises and viewpoint tours; still busy but family friendly",
   },
   {
     month: "September",
-    temperature: "7–14°C (45–57°F)",
-    daylight: "12–13 hours",
-    traffic: "Moderate — 15 scheduled calls in September 2026",
+    temperature: "7 to 14°C (45 to 57°F)",
+    daylight: "12 to 13 hours",
+    traffic: "Moderate, 15 scheduled calls in September 2026",
     excursion:
-      "Photography-focused fjord cruises; autumn colour on mountain slopes",
+      "Photography focused fjord cruises; autumn colour on mountain slopes",
   },
 ] as const;
 
@@ -123,7 +123,7 @@ export default function BestTimeToVisitFlamPage() {
       relatedLinks={relatedLinks}
       faqs={faqs}
       ctaTitle="Book Flam shore excursions for your cruise month"
-      ctaText="Whether you arrive in June sunshine or a September shower, browse cruise-friendly tours timed around your ship's hours in port."
+      ctaText="Whether you arrive in June sunshine or a September shower, browse cruise friendly tours timed around your ship's hours in port."
       belowHero={<CruisePassengerQuickPicks />}
     >
       <section>
@@ -147,7 +147,7 @@ export default function BestTimeToVisitFlamPage() {
       <section>
         <h2>Flam weather by month</h2>
         <p>
-          Flam has a mild fjord climate influenced by the Gulf Stream — cooler
+          Flam has a mild fjord climate influenced by the Gulf Stream, cooler
           than southern Europe but warmer than you might expect for Norway.
           Temperatures below are typical daytime ranges for cruise season; always
           pack layers and a rain jacket regardless of month.
@@ -199,13 +199,13 @@ export default function BestTimeToVisitFlamPage() {
           Flam&apos;s cruise season runs from May through September, with{" "}
           <strong>peak season in June, July, and August</strong>. During these
           months the Aurlandsfjord sees the highest concentration of cruise
-          calls, and the village of Flam — with a population under 500 — can
+          calls, and the village of Flam, with a population under 500, can
           feel busy when two or three large ships dock on the same day.
         </p>
         <p>
           Crowding is not constant. It depends on how many vessels share your
-          arrival date, how early you disembark, and whether you pre-booked
-          excursions. On a single-ship day Flam feels spacious; on a triple-call
+          arrival date, how early you disembark, and whether you book in advanceed
+          excursions. On a single ship day Flam feels spacious; on a triple call
           Tuesday in July, queues at the Flamsbana ticket office and fuller
           fjord boats are common.
         </p>
@@ -247,17 +247,17 @@ export default function BestTimeToVisitFlamPage() {
           Each month suits different highlights. Match your excursion to the
           weather, daylight, and crowd level you can expect on your cruise day.
         </p>
-        <h3>May and September — shoulder season</h3>
+        <h3>May and September, shoulder season</h3>
         <p>
           Cooler and quieter, with fewer competing ships. The{" "}
           <Link href="/excursions/flam-railway">Flam Railway</Link> is a strong
-          choice — sheltered, reliable, and spectacular even in changeable
+          choice, sheltered, reliable, and spectacular even in changeable
           weather. A{" "}
           <Link href="/excursions/flam-fjord-cruise">Naeroyfjord cruise</Link>{" "}
           rewards patient photographers with moody light and fewer boats on the
           water.
         </p>
-        <h3>June — best all-round month</h3>
+        <h3>June, best all round month</h3>
         <p>
           Long daylight and full excursion availability make June ideal for
           combining experiences. Take the{" "}
@@ -267,16 +267,16 @@ export default function BestTimeToVisitFlamPage() {
           ship stays eight hours or more. The extended golden hour is excellent
           for fjord photography.
         </p>
-        <h3>July and August — peak summer</h3>
+        <h3>July and August, peak summer</h3>
         <p>
-          Warmest temperatures and highest traffic. Pre-book every excursion.
+          Warmest temperatures and highest traffic. Book in advance every excursion.
           The{" "}
           <Link href="/excursions/stegastein-viewpoint">
             Stegastein viewpoint
           </Link>{" "}
           tour delivers the classic aerial fjord photograph and works well when
-          skies are clear. On rainy peak-season days, prioritise the railway or
-          a sheltered fjord cruise over open-air viewpoints.
+          skies are clear. On rainy peak season days, prioritise the railway or
+          a sheltered fjord cruise over open air viewpoints.
         </p>
         <p>
           Browse all options on our{" "}
@@ -292,7 +292,7 @@ export default function BestTimeToVisitFlamPage() {
         <ul>
           <li>
             <strong>Pack layers:</strong> fjord weather shifts quickly; a light
-            fleece and waterproof shell cover most cruise-season days.
+            fleece and waterproof shell cover most cruise season days.
           </li>
           <li>
             <strong>Book early in peak months:</strong> July and August sell out
@@ -303,8 +303,8 @@ export default function BestTimeToVisitFlamPage() {
             ashore; in September plan one focused excursion rather than two.
           </li>
           <li>
-            <strong>Protect your return window:</strong> keep 30–45 minutes
-            before all-aboard free near the pier, especially on multi-ship days.
+            <strong>Protect your return window:</strong> keep 30 to 45 minutes
+            before all aboard free near the pier, especially on multi ship days.
           </li>
         </ul>
         <p>

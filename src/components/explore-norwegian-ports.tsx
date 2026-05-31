@@ -77,7 +77,7 @@ export const explorePortsFromFlam: ExploreNorwegianPortsConfig = {
     <>
       Many Norwegian fjord cruises visit multiple ports during the same itinerary.
       If Stavanger is also on your route, discover fjord cruises, walking tours and
-      cruise planning tools designed specifically for cruise passengers — including{" "}
+      cruise planning tools designed specifically for cruise passengers, including{" "}
       <a
         href="https://stavangershoreexcursions.com"
         className="font-medium text-blue-700 underline-offset-2 hover:underline"

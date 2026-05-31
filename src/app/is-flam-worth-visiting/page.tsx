@@ -26,14 +26,14 @@ const relatedLinks = [
 
 const faqs = [
   {
-    question: "Is Flam worth it for first-time cruise passengers in Norway?",
+    question: "Is Flam worth it for first time cruise passengers in Norway?",
     answer:
-      "Yes. Flam concentrates iconic fjord scenery, the Flamsbana railway, and Naeroyfjord cruises within steps of the cruise pier — an efficient use of a single port day.",
+      "Yes. Flam concentrates iconic fjord scenery, the Flamsbana railway, and Naeroyfjord cruises within steps of the cruise pier, an efficient use of a single port day.",
   },
   {
     question: "Will Flam feel too crowded when my cruise ship visits?",
     answer:
-      "It can on peak summer days when multiple vessels call at once. Arrive ashore early, pre-book excursions, and you can still enjoy the highlights while planning to return to ship on time.",
+      "It can on peak summer days when multiple vessels call at once. Arrive ashore early, book in advance excursions, and you can still enjoy the highlights while planning to return to ship on time.",
   },
   {
     question: "Is Flam still worth visiting in the rain?",
@@ -65,7 +65,7 @@ export default function IsFlamWorthVisitingPage() {
           Flam is worth visiting for most cruise guests who want dramatic Norwegian
           scenery without long transfers. The Aurlandsfjord, Naeroyfjord, Flamsbana
           railway, and Stegastein viewpoint are all reachable from the cruise pier
-          — a rare combination that makes excellent use of limited port time.
+         , a rare combination that makes excellent use of limited port time.
         </p>
       </section>
 
@@ -73,7 +73,7 @@ export default function IsFlamWorthVisitingPage() {
         <h2>What makes Flam stand out</h2>
         <ul>
           <li>
-            UNESCO-listed Naeroyfjord scenery on cruises that depart from the
+            UNESCO listed Naeroyfjord scenery on cruises that depart from the
             harbour
           </li>
           <li>
@@ -87,7 +87,7 @@ export default function IsFlamWorthVisitingPage() {
             Compact, walkable port layout ideal for cruise passenger convenience
           </li>
           <li>
-            Excursions designed around typical half-day and full-day ship schedules
+            Excursions designed around typical half day and full day ship schedules
           </li>
         </ul>
         <p>
@@ -100,8 +100,8 @@ export default function IsFlamWorthVisitingPage() {
         <h2>When Flam delivers the most value</h2>
         <p>
           You will get the most from Flam when your ship stays at least six hours
-          and you pre-book one headline experience. Photography lovers, railway
-          enthusiasts, and first-time fjord visitors consistently rate the port among
+          and you book in advance one headline experience. Photography lovers, railway
+          enthusiasts, and first time fjord visitors consistently rate the port among
           their cruise highlights. Families appreciate the short walks and clear
           signage from pier to attractions.
         </p>
@@ -118,11 +118,11 @@ export default function IsFlamWorthVisitingPage() {
           Flam exists primarily for tourism, so prices for food, souvenirs, and
           tours reflect that demand. Summer crowds can mean queues at the railway
           and crowded harbourfront cafés when several ships overlap. Independent
-          travellers must watch the clock themselves — missing all aboard is your
-          responsibility unless you booked a ship-sponsored tour with a guarantee.
+          travellers must watch the clock themselves, missing all aboard is your
+          responsibility unless you booked a ship sponsored tour with a guarantee.
         </p>
         <ul>
-          <li>Higher excursion and dining prices than non-tourist villages</li>
+          <li>Higher excursion and dining prices than quieter Norwegian villages</li>
           <li>Limited taxi supply compared with larger cities</li>
           <li>Weather can hide mountain views on viewpoint tours</li>
         </ul>
@@ -134,7 +134,7 @@ export default function IsFlamWorthVisitingPage() {
           Prioritise Flam if fjord landscapes are the reason you chose a Norway
           cruise. It suits passengers who want a structured, photogenic day with
           minimal logistics. It may frustrate travellers who dislike organised
-          tourism or prefer unstructured wandering — though even they often admit
+          tourism or prefer unstructured wandering, though even they often admit
           the fjord itself exceeds expectations.
         </p>
       </section>
@@ -146,7 +146,7 @@ export default function IsFlamWorthVisitingPage() {
           <Link href="/flam-cruise-ship-schedule">Flam cruise ship schedule</Link>,
           read the <Link href="/flam-port-guide">port guide</Link>, book one or two
           experiences in advance, and keep a hard stop for returning to the gangway.
-          Cruise passengers who prepare ahead rarely leave disappointed — they leave
+          Cruise passengers who prepare ahead rarely leave disappointed, they leave
           with fjord photos they will talk about for years.
         </p>
       </section>

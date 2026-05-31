@@ -44,7 +44,7 @@ export function ShipScheduleShell({
             </p>
             {showReassurance ? (
               <p className="mt-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm">
-                Return to ship on time — cruise passenger friendly
+                Return to ship on time, cruise passenger friendly
               </p>
             ) : null}
           </div>
