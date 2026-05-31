@@ -29,4 +29,6 @@ export const siteImages = {
     "https://upload.wikimedia.org/wikipedia/commons/4/42/Kjosfossen-wv.jpg",
   kjosfossenWide:
     "https://upload.wikimedia.org/wikipedia/commons/d/d5/Kjosfossen.jpg",
+  stavangerHarbour:
+    "https://upload.wikimedia.org/wikipedia/commons/7/77/Stavanger_V%C3%A5gen_01.jpg",
 } as const;

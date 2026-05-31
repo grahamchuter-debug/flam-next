@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 
+import { siteImages } from "@/lib/site-images";
+
 export type ExploreNorwegianPortsConfig = {
   intro: ReactNode;
+  cardImage: string;
+  cardImageAlt: string;
   cardTitle: string;
   cardTitleHref: string;
   cardDescription: string;
@@ -37,12 +41,11 @@ export function ExploreNorwegianPorts({ config }: ExploreNorwegianPortsProps) {
           </div>
 
           <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
-            <div
-              className="relative flex h-40 shrink-0 items-center justify-center bg-gradient-to-br from-gray-800 to-blue-700 sm:h-44"
-              aria-hidden="true"
-            >
-              <span className="text-5xl opacity-90">🇳🇴</span>
-            </div>
+            <img
+              src={config.cardImage}
+              alt={config.cardImageAlt}
+              className="h-40 w-full shrink-0 object-cover sm:h-44"
+            />
 
             <div className="flex flex-1 flex-col p-3.5 md:p-4">
               <h3 className="mb-1.5 text-base font-semibold text-gray-900">
@@ -96,6 +99,9 @@ export const explorePortsFromFlam: ExploreNorwegianPortsConfig = {
   ),
   cardTitle: "Stavanger Shore Excursions",
   cardTitleHref: "https://stavangershoreexcursions.com",
+  cardImage: siteImages.stavangerHarbour,
+  cardImageAlt:
+    "Cruise ships and waterfront in Vagen harbour, Stavanger, Norway",
   cardDescription:
     "Explore Lysefjord cruises, local walking tours, Stavanger port guides and cruise planning resources.",
   ctaLabel: "Visit Stavanger",
