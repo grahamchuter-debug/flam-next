@@ -83,13 +83,13 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={excursion.bookingHref ?? "/flam-shore-excursions"}
-                  className="inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:text-base"
+                  className="btn-primary"
                 >
-                  {excursion.bookingLabel ?? "Book this excursion"}
+                  {excursion.bookingLabel ?? "Explore this excursion"}
                 </Link>
                 <Link
                   href="/flam-shore-excursions"
-                  className="inline-block rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/20 sm:text-base"
+                  className="btn-secondary"
                 >
                   View all excursions
                 </Link>
@@ -235,19 +235,19 @@ export function ExcursionDetailPage({ excursion }: ExcursionDetailPageProps) {
 
         <section className="border-y bg-gray-900 text-white">
           <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
-            <h2 className="text-2xl font-bold sm:text-3xl">
-              {excursion.ctaTitle ?? `Ready to book your ${excursion.title}?`}
+            <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+              {excursion.ctaTitle ?? `Explore ${excursion.title}`}
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
               {excursion.ctaText ??
-                "Secure your place before port day and explore more cruise friendly excursions designed around your ship's timetable."}
+                "Read the itinerary notes, then compare other Flam options against your hours ashore. This site does not process bookings."}
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href={excursion.bookingHref ?? "/flam-shore-excursions"}
-                className="inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
+                className="btn-primary"
               >
-                {excursion.bookingLabel ?? "Book this excursion"}
+                {excursion.bookingLabel ?? "Explore this excursion"}
               </Link>
               <Link
                 href="/flam-shore-excursions"

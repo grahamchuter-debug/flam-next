@@ -17,7 +17,7 @@ export const flamRailwayExcursion: ExcursionData = {
     duration: "Approx. 1 to 2 hours round trip",
     meetingPoint: "Flam railway station, beside the cruise pier",
     returnReassurance:
-      "Frequent departures suited to standard morning and afternoon port calls",
+      "Station is in the village; still confirm your own tickets and return buffer",
     bestFor: "Rail enthusiasts, families, and guests wanting a classic Flam experience on foot from ship",
   },
   gallery: [
@@ -56,7 +56,7 @@ export const flamRailwayExcursion: ExcursionData = {
   description: [
     "The Flam Railway, Flamsbana, is among the steepest standard gauge railways in the world and a must for many cruise passengers visiting Flam. The line climbs from sea level at Flam station to Myrdal on the Bergen line, passing waterfalls and tight valley bends along the way.",
     "Because the station sits in the village next to the cruise pier, you can disembark and reach the platform quickly without a transfer. That makes the railway ideal when you want a high impact experience without losing an hour to logistics.",
-    "Most cruise guests take a round trip to Myrdal and return on the next available departure. Peak summer services fill quickly, so booking ahead matters when several ships share the port on the same date.",
+    "Most cruise guests take a round trip to Myrdal and return to Flam. Demand is high on busy ship days, so confirm tickets with the operator or your usual channel rather than assuming a walk-up seat will match your hours ashore.",
   ],
   included: [
     "Flamsbana train travel on booked departures",
@@ -70,7 +70,7 @@ export const flamRailwayExcursion: ExcursionData = {
     "Travel insurance or personal expenses",
   ],
   timingAdvice: [
-    "Buy tickets early on busy cruise days, popular departures sell out when multiple ships visit Flam.",
+    "On busy cruise days, confirm tickets before you rely on a particular departure.",
     "Allow time to queue at the station, board, complete the round trip, and walk back to your ship with 30 to 45 minutes before all aboard.",
     "A one hour delay in ship arrival can eliminate your preferred departure slot. Check your cruise app before leaving the gangway.",
     "Pair the railway with a short village stroll only if you have six or more reliable hours ashore. See our one day in Flam guide for sample timings.",
@@ -89,7 +89,7 @@ export const flamRailwayExcursion: ExcursionData = {
     {
       question: "Should cruise passengers book Flamsbana tickets in advance?",
       answer:
-        "Yes during peak season. June and July bring heavy demand, and walk up tickets may not match your preferred departure or your ship's timetable.",
+        "Peak season demand is high. Walk-up tickets may not match the departure you need for your ship's timetable. Confirm with the railway operator or your usual booking channel.",
     },
     {
       question: "Can I take the Flam Railway and still make all aboard?",
@@ -114,8 +114,8 @@ export const flamRailwayExcursion: ExcursionData = {
     { label: "Flam fjord cruise", href: "/excursions/flam-fjord-cruise" },
   ],
   bookingHref: "/flam-shore-excursions",
-  bookingLabel: "Book this excursion",
-  ctaTitle: "Ready to book your Flam Railway experience?",
+  bookingLabel: "Explore this excursion",
+  ctaTitle: "Read the Flam Railway notes, then compare other options",
   ctaText:
-    "Secure your Flamsbana departure before port day and browse more cruise friendly excursions timed for your ship's call in Flam.",
+    "This site does not sell Flamsbana tickets. Use the timing notes, then browse other Flam ideas if the railway does not fit.",
 };

@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import {
-  ExploreNorwegianPorts,
-  explorePortsFromFlam,
-} from "@/components/explore-norwegian-ports";
+import { CruisePortDayPlanner } from "@/components/cruise-port-day-planner";
 import { JsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
+import { TourCard } from "@/components/tour-card";
+import {
+  flamScheduleIntegrity,
+  formatScheduleDate,
+} from "@/lib/flam-schedules";
+import { flamTourCards, flamTourListItems } from "@/lib/flam-tours";
+import { siteConfig } from "@/lib/site-config";
+import { imageAlts, siteImages } from "@/lib/site-images";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { buildItemListSchema, buildWebPageSchema } from "@/lib/site-schema";
-import { siteImages } from "@/lib/site-images";
+import {
+  buildFaqSchema,
+  buildItemListSchema,
+  buildWebPageSchema,
+} from "@/lib/site-schema";
 
 const pageMeta = {
   title:
@@ -21,36 +30,41 @@ const pageMeta = {
 export const metadata: Metadata = buildPageMetadata({
   ...pageMeta,
   ogImage: siteImages.hero,
-  ogImageAlt:
-    "Flam cruise port on the Aurlandsfjord with ships docked at the village pier",
+  ogImageAlt: imageAlts.hero,
   absoluteTitle: true,
 });
 
-const trustBadges = [
-  "Return to ship on time",
-  "Cruise passenger friendly",
-  "Norway fjord specialists",
-] as const;
-
-const popularTours = [
+const homeFaqs = [
   {
-    name: "Flam Fjord Cruise",
-    description:
-      "Scenic Naeroyfjord cruise for cruise passengers departing from Flam pier.",
+    question: "Is this site for cruise passengers calling at Flam?",
+    answer:
+      "Yes. This is an independent Flam cruise-port planning site. It helps you understand railway, fjord and village options, check published ship calls, and leave a return buffer. Confirm final timings with your cruise line.",
   },
   {
-    name: "Stegastein Viewpoint Tour",
-    description:
-      "Panoramic Aurlandsfjord viewpoint tour above Flam for cruise guests.",
+    question: "Should I choose the railway or a fjord cruise?",
+    answer:
+      "They are different days. Flamsbana is a mountain railway from the village station. A fjord cruise is time on the water from the pier. Pick the one you care about most unless you already hold tickets for both and still have a generous buffer.",
   },
   {
-    name: "Flam Railway Experience",
-    description:
-      "Flamsbana railway journey from Flam station for cruise ship visitors.",
+    question: "Can I combine the railway and a fjord cruise because my ship stays all day?",
+    answer:
+      "Published arrival and departure times are not enough to prove a combination will work. Train and boat slots, queues and delays sit outside the ship timetable. Treat two headline experiences as a stretch, not a default.",
+  },
+  {
+    question: "Can I book shore excursions on this site?",
+    answer:
+      "This site is for planning and discovery. There is no live booking checkout here. Use the excursion pages and guides to understand options, then arrange tickets through operators or your usual booking channel.",
   },
 ] as const;
 
 export default function Home() {
+  const firstLabel = flamScheduleIntegrity.firstDate
+    ? formatScheduleDate(flamScheduleIntegrity.firstDate)
+    : "";
+  const lastLabel = flamScheduleIntegrity.lastDate
+    ? formatScheduleDate(flamScheduleIntegrity.lastDate)
+    : "";
+
   return (
     <>
       <JsonLd
@@ -60,191 +74,323 @@ export default function Home() {
             title: pageMeta.title,
             description: pageMeta.description,
           }),
-          buildItemListSchema(popularTours),
+          buildItemListSchema(flamTourListItems),
+          buildFaqSchema(homeFaqs),
         ]}
       />
-      <main className="min-h-screen bg-white text-gray-900">
-        <section
-          role="img"
-          aria-label="Flam cruise port on the Aurlandsfjord with ships docked at the village pier"
-          className="relative bg-cover bg-center"
-          style={{ backgroundImage: `url('${siteImages.hero}')` }}
+      <main>
+        <PageHero
+          image={siteImages.hero}
+          imageAlt={imageAlts.hero}
+          className="min-h-[28rem] md:min-h-[32rem]"
         >
-          <div className="bg-black/50">
-            <div className="mx-auto max-w-6xl px-4 py-20 text-center text-white sm:px-6 sm:py-28 md:py-32">
-              <h1 className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl md:text-6xl lg:text-7xl">
-                Flam Shore Excursions
-              </h1>
+          <p className="hero-eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.2em]">
+            {siteConfig.name}
+          </p>
+          <h1 className="font-display mb-5 max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-5xl">
+            Your ship is in Flam. Railway, fjord, or the village?
+          </h1>
+          <p className="max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
+            Most ships dock beside the station and piers. Choose one main
+            experience, then keep time to walk back.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link
+              href="/flam-shore-excursions"
+              className="btn-primary w-full justify-center sm:w-auto"
+            >
+              Explore Flam excursions
+            </Link>
+            <Link
+              href="/ship-schedule"
+              className="btn-secondary w-full justify-center sm:w-auto"
+            >
+              Check your ship schedule
+            </Link>
+          </div>
+        </PageHero>
 
-              <p className="mx-auto mb-6 max-w-3xl text-base sm:mb-8 sm:text-xl md:text-2xl">
-                Discover unforgettable Norway fjord adventures designed for cruise
-                passengers.
-              </p>
-
-              <a
-                href="#tours"
-                className="inline-block rounded-full bg-blue-600 px-6 py-3 text-base font-semibold transition hover:bg-blue-700 sm:px-8 sm:py-4 sm:text-lg"
-              >
-                View Excursions
-              </a>
-
-              <ul className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:mt-8 sm:gap-3">
-                {trustBadges.map((badge) => (
-                  <li
-                    key={badge}
-                    className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:px-4 sm:text-sm"
-                  >
-                    {badge}
-                  </li>
-                ))}
-              </ul>
+        <section className="border-b border-[var(--border-light)] bg-[var(--surface)] py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">What kind of Flam day?</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Four realistic shapes, not one stacked itinerary
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Flam packs railway, fjord water and a viewpoint road into a small
+              village. Hours ashore decide how many of those you can attempt,
+              not how many you should promise yourself.
+            </p>
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="border-t border-[var(--border-light)] pt-5">
+                <h3 className="font-display text-xl font-semibold text-slate-900">
+                  Flamsbana
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Station is in the village. A round trip to Myrdal is the
+                  classic rail day if you can hold tickets and still leave a
+                  return buffer.
+                </p>
+                <Link
+                  href="/excursions/flam-railway"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                >
+                  Flam Railway
+                </Link>
+              </div>
+              <div className="border-t border-[var(--border-light)] pt-5">
+                <h3 className="font-display text-xl font-semibold text-slate-900">
+                  Fjord water
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Scenic boats leave from the pier into the Naeroyfjord. This is
+                  a water day, not a substitute for the train.
+                </p>
+                <Link
+                  href="/excursions/flam-fjord-cruise"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                >
+                  Fjord cruise
+                </Link>
+              </div>
+              <div className="border-t border-[var(--border-light)] pt-5">
+                <h3 className="font-display text-xl font-semibold text-slate-900">
+                  Stegastein
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  A coach outing to the viewpoint above the Aurlandsfjord. Road
+                  time sits on top of any village wandering.
+                </p>
+                <Link
+                  href="/excursions/stegastein-viewpoint"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                >
+                  Viewpoint tour
+                </Link>
+              </div>
+              <div className="border-t border-[var(--border-light)] pt-5">
+                <h3 className="font-display text-xl font-semibold text-slate-900">
+                  Stay local
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Short calls still work if you keep to the village, station
+                  area and waterfront rather than stacking headline tours.
+                </p>
+                <Link
+                  href="/one-day-in-flam"
+                  className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+                >
+                  One day guidance
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-          <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-            Explore Flam Like a Local
-          </h2>
-
-          <p className="text-base leading-8 text-gray-700 sm:text-lg">
-            Welcome to Flam Shore Excursions, your specialist guide to Norway cruise
-            experiences. Discover scenic fjord cruises on the UNESCO listed
-            Naeroyfjord, breathtaking viewpoints like Stegastein above the
-            Aurlandsfjord, mountain railways and small group tours carefully
-            selected for cruise ship guests visiting Flam.
-          </p>
-        </section>
-
-        <section
-          id="tours"
-          className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-24"
-        >
-          <h2 className="mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl">
-            Popular Flam Tours
-          </h2>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <article className="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-              <img
-                src={siteImages.fjordCruise}
-                alt="Naeroyfjord scenic cruise boat surrounded by steep fjord cliffs near Flam, Norway"
-                className="h-40 w-full object-cover"
-              />
-
-              <div className="flex flex-1 flex-col p-3.5 md:p-4">
-                <h3 className="mb-1.5 text-base font-semibold">
-                  Flam Fjord Cruise
-                </h3>
-
-                <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
-                  Experience dramatic fjords and waterfalls on a scenic cruise
-                  through the Naeroyfjord from Flam.
-                </p>
-
-                <Link
-                  href="/excursions/flam-fjord-cruise"
-                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
-                >
-                  View Tour
-                </Link>
-              </div>
-            </article>
-
-            <article className="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-              <img
-                src={siteImages.stegastein}
-                alt="Stegastein viewpoint platform overlooking the Aurlandsfjord near Flam, Norway"
-                className="h-40 w-full object-cover"
-              />
-
-              <div className="flex flex-1 flex-col p-3.5 md:p-4">
-                <h3 className="mb-1.5 text-base font-semibold">
-                  Stegastein Viewpoint Tour
-                </h3>
-
-                <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
-                  Visit one of Norway&apos;s most famous panoramic viewpoints above
-                  the Aurlandsfjord.
-                </p>
-
-                <Link
-                  href="/excursions/stegastein-viewpoint"
-                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
-                >
-                  View Tour
-                </Link>
-              </div>
-            </article>
-
-            <article className="flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 shadow-sm">
-              <img
-                src={siteImages.flamRailway}
-                alt="Flamsbana scenic train on a mountainside above the Flam valley in Norway"
-                className="h-40 w-full object-cover"
-              />
-
-              <div className="flex flex-1 flex-col p-3.5 md:p-4">
-                <h3 className="mb-1.5 text-base font-semibold">
-                  Flam Railway Experience
-                </h3>
-
-                <p className="mb-3 flex-1 text-sm leading-5 text-gray-600">
-                  Ride one of the world&apos;s most scenic railway journeys through
-                  Norway&apos;s mountains on the Flamsbana.
-                </p>
-
-                <Link
-                  href="/excursions/flam-railway"
-                  className="w-fit rounded-full bg-gray-900 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-black"
-                >
-                  View Tour
-                </Link>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <ExploreNorwegianPorts config={explorePortsFromFlam} />
-
-        <section id="tips" className="border-t bg-gray-50">
-          <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-            <h2 className="mb-4 text-2xl font-bold sm:text-3xl">Cruise Day Tips</h2>
-            <p className="text-base leading-8 text-gray-700 sm:text-lg">
-              Most ships dock right in Flam village, steps from the railway station
-              and fjord cruise piers. Book popular excursions early on busy days, and
-              allow time to return before all aboard.
-            </p>
-          </div>
-        </section>
-
-        <section className="border-t bg-white">
-          <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
-            <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
-              Check your ship time before booking
+        <section className="border-b border-[var(--border-light)] bg-surface-muted py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Find your ship</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Check when your ship is in Flam
             </h2>
-            <p className="mb-6 text-base leading-8 text-gray-700 sm:text-lg">
-              Match excursions to your arrival and departure times so you can enjoy
-              Flam and still return before all aboard.
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              {flamScheduleIntegrity.total} published Flam calls from{" "}
+              {firstLabel} to {lastLabel}. Arrival and departure times shape
+              what is realistic ashore. Always confirm with your cruise line.
             </p>
-            <ul className="flex flex-wrap gap-3">
-              <li>
-                <Link
-                  href="/ship-schedule/june-2026"
-                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/ship-schedule" className="btn-outline-dark">
+                Open Flam ship schedule
+              </Link>
+              <Link
+                href="/flam-cruise-ship-schedule"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+              >
+                How to read Flam schedules
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section id="tours" className="scroll-mt-24 py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Excursion options</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Experiences already on this site
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Railway, fjord cruise and Stegastein. Durations are approximate.
+              Keep a return buffer. This site does not sell tickets.
+            </p>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {flamTourCards.map((tour) => (
+                <TourCard key={tour.href} {...tour} />
+              ))}
+            </div>
+            <p className="mt-8">
+              <Link
+                href="/flam-shore-excursions"
+                className="text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+              >
+                Compare Flam shore excursions
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        <section className="border-y border-[var(--border-light)] bg-[var(--surface)] py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Railway and fjord</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Do not treat a long call as a combination ticket
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Ship times tell you when you must be back on board. They do not
+              tell you whether Flamsbana and a fjord sailing will both have
+              seats, run on time, or leave you a safe walk to the gangway.
+              Confirm each ticket separately. If either is tight, choose one.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+              The{" "}
+              <Link
+                href="/one-day-in-flam"
+                className="font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+              >
+                one day in Flam
+              </Link>{" "}
+              guide is for shaping hours, not for promising two headline
+              experiences from the timetable alone.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">First time in Flam</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Useful planning guides
+            </h2>
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  href: "/flam-port-guide",
+                  title: "Cruise port guide",
+                  text: "Village layout from the pier to the station and fjord boats.",
+                },
+                {
+                  href: "/one-day-in-flam",
+                  title: "One day in Flam",
+                  text: "Sample shapes for short, classic and longer port calls.",
+                },
+                {
+                  href: "/is-flam-worth-visiting",
+                  title: "Is Flam worth visiting?",
+                  text: "Honest context if you are deciding how to spend hours ashore.",
+                },
+              ].map((item) => (
+                <li
+                  key={item.href}
+                  className="border-t border-[var(--border-light)] pt-5"
                 >
-                  June 2026 schedule
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/ship-schedule/july-2026"
-                  className="rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
-                >
-                  July 2026 schedule
-                </Link>
-              </li>
+                  <h3 className="font-display text-lg font-semibold text-slate-900">
+                    <Link
+                      href={item.href}
+                      className="underline-offset-4 hover:underline"
+                    >
+                      {item.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {item.text}
+                  </p>
+                </li>
+              ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="border-y border-[var(--border-light)] bg-surface-muted py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Port-day planning</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Think in hours, pace and return buffer
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Use published times as a planning start, then leave margin before
+              all aboard. This planner helps you think through the day. It does
+              not invent a guaranteed railway or boat fit.
+            </p>
+            <div className="mt-8">
+              <CruisePortDayPlanner />
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Return to ship</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Flam is compact. Queues are not.
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Walking distances are short. Station and pier queues are not. Your
+              cruise line sets all aboard. Build your own buffer after any train
+              or boat ends.
+            </p>
+          </div>
+        </section>
+
+        <section className="border-y border-[var(--border-light)] bg-[var(--surface)] py-14 sm:py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="section-eyebrow">Norway beyond Flam</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Planning other Norwegian ports?
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              For multi-port itineraries, the national planning site covers the
+              wider Norway cruise picture.
+            </p>
+            <a
+              href={siteConfig.nationalAuthorityUrl}
+              className="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--fjord)] underline-offset-4 hover:underline"
+            >
+              Norway Shore Excursions
+            </a>
+          </div>
+        </section>
+
+        <section className="border-b border-[var(--border-light)] bg-surface-muted py-14 sm:py-16">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <p className="section-eyebrow">FAQ</p>
+            <h2 className="font-display mt-3 text-2xl font-semibold text-slate-900 sm:text-3xl">
+              Flam cruise questions
+            </h2>
+            <dl className="mt-8 space-y-6">
+              {homeFaqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="font-semibold text-slate-900">{faq.question}</dt>
+                  <dd className="mt-2 text-sm leading-6 text-slate-600">
+                    {faq.answer}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        <section className="bg-navy py-14 text-white sm:py-16">
+          <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+            <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+              Flam planning concierge
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/80 sm:text-base">
+              {siteConfig.contactEmailVerified
+                ? `Questions about shaping a Flam port day? Email ${siteConfig.contactEmail}.`
+                : "A destination email is being prepared. Until then, use the schedule, one-day guide and excursion pages on this site."}
+            </p>
+            <Link href="/contact" className="btn-primary mt-6">
+              Contact
+            </Link>
           </div>
         </section>
       </main>

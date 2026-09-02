@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Can I combine the railway and a fjord cruise in one day?",
     answer:
-      "Yes if your ship stays at least eight hours. Run the Flamsbana first thing, grab lunch in the village, then board an afternoon fjord cruise, or book a combined package through an operator.",
+      "Only if you already hold both tickets and still have a generous buffer after the later activity. Published ship times alone cannot prove the two will fit. If either ticket is unconfirmed, choose one headline experience.",
   },
   {
     question: "Should I book tickets before my cruise arrives in Flam?",
@@ -60,7 +60,7 @@ export default function OneDayInFlamPage() {
       faqs={faqs}
     >
       <section>
-        <h2>Start with your ship's Flam schedule</h2>
+        <h2>Start with your ship&apos;s Flam schedule</h2>
         <p>
           Every good Flam day begins with your cruise line&apos;s arrival,
           departure, and all aboard times. Subtract at least 45 minutes from your
@@ -75,10 +75,10 @@ export default function OneDayInFlamPage() {
         <h2>Morning: disembark early and secure tickets</h2>
         <p>
           Walk from the pier to Flam Railway Station or your excursion meeting
-          point as soon as you are cleared ashore. If you book in advanceed, collect or
-          confirm tickets immediately. If you are buying walk up seats, do it before
-          exploring the village, popular departures sell out when several cruise
-          ships share the fjord.
+          point as soon as you are cleared ashore. If you already hold tickets,
+          collect or confirm them first. If you still need tickets, do that
+          before exploring the village. Do not assume a walk-up seat will match
+          your hours ashore.
         </p>
         <p>
           The{" "}
@@ -95,8 +95,8 @@ export default function OneDayInFlamPage() {
         </p>
         <ul>
           <li>
-            <strong>Flamsbana railway:</strong> two hour round trip, frequent
-            departures, ideal for 5 to 7 hour port calls
+            <strong>Flamsbana railway:</strong> often treated as about two hours
+            round trip if tickets and a return buffer are already in place
           </li>
           <li>
             <strong>Naeroyfjord cruise:</strong> three to four hours, best for
@@ -127,8 +127,10 @@ export default function OneDayInFlamPage() {
         </p>
         <h3>8+ hours ashore</h3>
         <p>
-          Morning railway → village lunch → afternoon fjord cruise or Stegastein
-          tour → final hour near the pier for contingency buffer.
+          Morning railway, village lunch, then an afternoon fjord cruise or
+          Stegastein only if those later tickets are already confirmed and you
+          still have a generous buffer. Ship duration alone is not a combination
+          plan.
         </p>
       </section>
 
@@ -147,10 +149,10 @@ export default function OneDayInFlamPage() {
         <h2>What to skip when time is tight</h2>
         <p>
           Avoid long coach transfers, open ended hikes, or stacking two major tours
-          unless your ship stays a full day. Stegastein plus a fjord cruise is
-          achievable only with eight or more reliable hours ashore. When in doubt,
-          choose one unforgettable experience and enjoy Flam at a pace that keeps
-          cruise passengers calm about the countdown to departure.
+          unless both tickets are confirmed and you still have a generous buffer.
+          Stegastein plus a fjord cruise is a stretch even on a long call. When in
+          doubt, choose one unforgettable experience and keep cruise passengers
+          calm about the countdown to departure.
         </p>
         <p>
           Still deciding if the port suits your style? Read{" "}

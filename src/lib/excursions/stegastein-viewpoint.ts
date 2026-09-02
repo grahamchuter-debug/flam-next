@@ -114,8 +114,8 @@ export const stegasteinViewpointExcursion: ExcursionData = {
     { label: "Flam fjord cruise", href: "/excursions/flam-fjord-cruise" },
   ],
   bookingHref: "/flam-shore-excursions",
-  bookingLabel: "Book this excursion",
-  ctaTitle: "Ready to book your Stegastein viewpoint tour?",
+  bookingLabel: "Explore this excursion",
+  ctaTitle: "See how Stegastein sits against a Flam port day",
   ctaText:
-    "Reserve your coach transfer and viewpoint time before port day, then explore more cruise friendly Flam excursions for your ship's schedule.",
+    "This site does not sell coach tickets. Read the timing notes, then compare railway, fjord and village options.",
 };

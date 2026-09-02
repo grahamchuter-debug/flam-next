@@ -32,3 +32,15 @@ export const siteImages = {
   stavangerHarbour:
     "https://upload.wikimedia.org/wikipedia/commons/7/77/Stavanger_V%C3%A5gen_01.jpg",
 } as const;
+
+export const imageAlts = {
+  hero: "Flam cruise port on the Aurlandsfjord with ships docked at the village pier",
+  fjordCruise:
+    "Naeroyfjord scenic cruise boat surrounded by steep fjord cliffs near Flam, Norway",
+  stegastein:
+    "Stegastein viewpoint platform overlooking the Aurlandsfjord near Flam, Norway",
+  flamRailway:
+    "Flamsbana scenic train on a mountainside above the Flam valley in Norway",
+  naeroyfjord: "Naeroyfjord landscape near Flam, Norway",
+  kjosfossen: "Kjosfossen waterfall beside the Flam Railway route",
+} as const;

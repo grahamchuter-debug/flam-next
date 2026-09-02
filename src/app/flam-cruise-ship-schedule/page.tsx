@@ -8,7 +8,7 @@ import { siteImages } from "@/lib/site-images";
 const pageMeta = {
   title: "Flam Cruise Ship Schedule Guide",
   description:
-    "How cruise passengers can read Flam port schedules, plan around busy fjord days, and book shore excursions that fit all aboard times.",
+    "How cruise passengers can read Flam port schedules, plan around busy fjord days, and match shore experiences to all aboard times.",
   path: "/flam-cruise-ship-schedule",
   ogImage: siteImages.hero,
   ogImageAlt:
@@ -51,7 +51,7 @@ export default function FlamCruiseShipSchedulePage() {
   return (
     <ContentPage
       title="Flam Cruise Ship Schedule"
-      lead="How cruise passengers can read Flam port times, plan around busy fjord days, and book shore excursions that fit your ship's arrival and departure."
+      lead="How cruise passengers can read Flam port times, plan around busy fjord days, and match shore experiences to your ship's arrival and departure."
       heroImage={pageMeta.ogImage}
       heroImageAlt={pageMeta.ogImageAlt}
       pagePath={pageMeta.path}
@@ -60,7 +60,7 @@ export default function FlamCruiseShipSchedulePage() {
       faqs={faqs}
     >
       <section>
-        <h2>Your ship's schedule is the source of truth</h2>
+        <h2>Your ship&apos;s schedule is the source of truth</h2>
         <p>
           Published port schedules on third party websites are useful for guessing
           crowd levels, but only your cruise line confirms arrival, departure, tender

@@ -9,11 +9,11 @@ export const flamFjordCruiseExcursion: ExcursionData = {
   lead: "Sail the UNESCO listed Naeroyfjord from Flam on a scenic shore excursion designed around cruise ship port times, dramatic cliffs, waterfalls, and enough margin to return before all aboard.",
   metaTitle: "Flam Fjord Cruise Shore Excursion",
   metaDescription:
-    "Book the Flam fjord cruise shore excursion for cruise passengers. Scenic Naeroyfjord sailing from Flam pier with return to ship timing advice and cruise friendly durations.",
+    "Plan the Flam fjord cruise shore excursion for cruise passengers. Scenic Naeroyfjord sailing from Flam pier with return to ship timing advice and cruise friendly durations.",
   heroImage: siteImages.fjordCruise,
   heroImageAlt:
     "Scenic cruise boat on the Naeroyfjord surrounded by steep cliffs near Flam, Norway",
-  heroBadge: "⭐ Best for first time visitors to Flam",
+  heroBadge: "Often chosen on a first Flam call",
   summary: {
     duration: "Approx. 2 to 3 hours",
     meetingPoint: "Flam pier, near the cruise ship gangway",
@@ -120,8 +120,8 @@ export const flamFjordCruiseExcursion: ExcursionData = {
     { label: "One day in Flam", href: "/one-day-in-flam" },
   ],
   bookingHref: "/flam-shore-excursions",
-  bookingLabel: "Book this excursion",
-  ctaTitle: "Ready to book your Flam fjord cruise?",
+  bookingLabel: "Explore this excursion",
+  ctaTitle: "Compare Flam fjord cruise with other port-day ideas",
   ctaText:
-    "Secure your sailing time before port day and explore more cruise friendly excursions designed around your ship's timetable.",
+    "This site does not sell tickets. Use the notes above, then browse other Flam options against your hours ashore.",
 };

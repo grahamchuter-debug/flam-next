@@ -114,7 +114,7 @@ export default function BestTimeToVisitFlamPage() {
   return (
     <ContentPage
       title="Best Time to Visit Flam on a Cruise"
-      lead="Flam sits deep in the Aurlandsfjord, and the month your cruise calls can shape everything from daylight for excursions to how crowded the village feels. This guide helps cruise passengers pick the right season, plan around peak traffic, and book shore excursions that fit their ship's port hours."
+      lead="Flam sits deep in the Aurlandsfjord, and the month your cruise calls can shape everything from daylight for excursions to how crowded the village feels. This guide helps cruise passengers pick the right season, plan around peak traffic, and match shore experiences to their ship's port hours."
       heroImage={pageMeta.ogImage}
       heroImageAlt={pageMeta.ogImageAlt}
       pagePath={pageMeta.path}
@@ -122,8 +122,8 @@ export default function BestTimeToVisitFlamPage() {
       breadcrumbs={breadcrumbs}
       relatedLinks={relatedLinks}
       faqs={faqs}
-      ctaTitle="Book Flam shore excursions for your cruise month"
-      ctaText="Whether you arrive in June sunshine or a September shower, browse cruise friendly tours timed around your ship's hours in port."
+      ctaTitle="Match Flam ideas to your cruise month"
+      ctaText="June sunshine and September showers ask for different pacing. Browse cruise-friendly options, then keep a clear walk back to the pier."
       belowHero={<CruisePassengerQuickPicks />}
     >
       <section>

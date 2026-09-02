@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Flam: fjord mist, deep navy water, Aurland teal, railway oxide */
+  --background: #e4eef2;
+  --foreground: #10222c;
+  --surface: #f6fafc;
+  --surface-muted: #d7e6ec;
+  --navy: #0d2836;
+  --navy-deep: #07141c;
+  --fjord: #1a6b7c;
+  --fjord-soft: #2a8496;
+  --harbour: #3d5a66;
+  --accent: #b4472e;
+  --accent-soft: #c96a52;
+  --border-light: #c3d3db;
+  --norway-blue: #1a6b7c;
+  --norway-blue-hover: #145564;
+  --norway-red: #b4472e;
+  --gold: #b4472e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-surface-muted: var(--surface-muted);
+  --color-norway-blue: var(--norway-blue);
+  --color-norway-red: var(--norway-red);
   --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-source-serif);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fjord);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+.bg-navy {
+  background-color: var(--navy);
+}
+
+.bg-navy-deep {
+  background-color: var(--navy-deep);
+}
+
+.bg-surface-muted {
+  background-color: var(--surface-muted);
+}
+
+.text-norway-blue {
+  color: var(--norway-blue);
+}
+
+.border-norway-red {
+  border-color: var(--norway-red);
+}
+
+.accent-bar-blue {
+  background-color: var(--fjord);
+}
+
+.accent-bar-red {
+  background-color: var(--accent);
+}
+
+@layer components {
+  .btn-primary,
+  .btn-primary-on-light,
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    border-radius: 0.25rem;
+    padding: 0.7rem 1.35rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    background-color: var(--accent);
+    color: #fff;
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-primary:hover,
+  .btn-primary-on-light:hover,
+  .btn-gold:hover {
+    background-color: var(--accent-soft);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(255 255 255 / 0.35);
+    background-color: rgb(255 255 255 / 0.1);
+    padding: 0.7rem 1.35rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgb(255 255 255 / 0.2);
+  }
+
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--border-light);
+    background: transparent;
+    padding: 0.7rem 1.35rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foreground);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .btn-outline-dark:hover {
+    border-color: var(--fjord);
+    background: var(--surface);
+  }
+}
+
+.page-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-hero-overlay {
+  background: linear-gradient(
+    105deg,
+    rgb(7 20 28 / 0.88) 0%,
+    rgb(13 40 54 / 0.52) 58%,
+    rgb(26 107 124 / 0.28) 100%
+  );
+}
+
+.hero-dark {
+  color: #fff;
+}
+
+.hero-eyebrow,
+.section-eyebrow {
+  color: var(--accent-soft);
+  letter-spacing: 0.18em;
+}
+
+.section-eyebrow {
+  color: var(--fjord);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.content-link {
+  color: var(--fjord);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.content-link:hover {
+  text-decoration: underline;
+}
+
+.premium-card {
+  border: 1px solid var(--border-light);
+  background: var(--surface);
+  border-radius: 0.25rem;
+}
+
+.badge-accent-red {
+  border: 1px solid rgb(255 255 255 / 0.35);
+  border-left: 3px solid var(--accent);
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+.badge-hero-red {
+  background-color: var(--accent);
+  color: #ffffff;
 }

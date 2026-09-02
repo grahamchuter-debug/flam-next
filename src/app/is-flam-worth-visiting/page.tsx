@@ -51,7 +51,7 @@ export default function IsFlamWorthVisitingPage() {
   return (
     <ContentPage
       title="Is Flam Worth Visiting?"
-      lead="An honest answer for cruise passengers: Flam is one of the most rewarding fjord ports if you plan around your ship's hours and book the right shore excursion."
+      lead="An honest answer for cruise passengers: Flam is one of the most rewarding fjord ports if you plan around your ship's hours and choose the right shore experience."
       heroImage={pageMeta.ogImage}
       heroImageAlt={pageMeta.ogImageAlt}
       pagePath={pageMeta.path}

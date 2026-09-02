@@ -1,4 +1,10 @@
-export const siteRoutes = [
+import {
+  getFlamMonthSummaries,
+  shipScheduleHubPath,
+  shipScheduleMonthPath,
+} from "@/lib/flam-schedules";
+
+const staticRoutes = [
   { path: "/", priority: 1, changeFrequency: "weekly" as const },
   {
     path: "/flam-shore-excursions",
@@ -41,28 +47,8 @@ export const siteRoutes = [
     changeFrequency: "monthly" as const,
   },
   {
-    path: "/ship-schedule",
-    priority: 0.8,
-    changeFrequency: "weekly" as const,
-  },
-  {
-    path: "/ship-schedule/june-2026",
-    priority: 0.8,
-    changeFrequency: "weekly" as const,
-  },
-  {
-    path: "/ship-schedule/july-2026",
-    priority: 0.7,
-    changeFrequency: "weekly" as const,
-  },
-  {
-    path: "/ship-schedule/august-2026",
-    priority: 0.7,
-    changeFrequency: "weekly" as const,
-  },
-  {
-    path: "/ship-schedule/september-2026",
-    priority: 0.7,
+    path: shipScheduleHubPath,
+    priority: 0.85,
     changeFrequency: "weekly" as const,
   },
   {
@@ -70,4 +56,19 @@ export const siteRoutes = [
     priority: 0.7,
     changeFrequency: "monthly" as const,
   },
+  { path: "/contact", priority: 0.5, changeFrequency: "yearly" as const },
+  { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+  { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
+  { path: "/about", priority: 0.5, changeFrequency: "yearly" as const },
 ] as const;
+
+export function getSiteRoutes() {
+  const monthRoutes = getFlamMonthSummaries().map((month) => ({
+    path: shipScheduleMonthPath(month.slug),
+    priority: 0.7,
+    changeFrequency: "weekly" as const,
+  }));
+  return [...staticRoutes, ...monthRoutes];
+}
+
+export const siteRoutes = staticRoutes;

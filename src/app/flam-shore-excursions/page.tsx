@@ -148,8 +148,9 @@ export default function FlamShoreExcursionsPage() {
             viewpoint tour
           </li>
           <li>
-            <strong>8+ hours:</strong> combine railway with a fjord cruise or
-            Stegastein
+            <strong>8+ hours:</strong> still choose a primary experience first.
+            A second ticketed outing only if it is already confirmed and you keep
+            a generous buffer
           </li>
         </ul>
         <p>

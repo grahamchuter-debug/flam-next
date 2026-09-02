@@ -2,38 +2,24 @@ import Link from "next/link";
 
 import { siteConfig } from "@/lib/site-config";
 
-const planYourVisitLinks = [
-  { label: "Flam Shore Excursions", href: "/flam-shore-excursions" },
-  { label: "Flam Port Guide", href: "/flam-port-guide" },
-  { label: "One Day in Flam", href: "/one-day-in-flam" },
-  { label: "Best Time to Visit Flam", href: "/best-time-to-visit-flam" },
-  { label: "Is Flam Worth Visiting?", href: "/is-flam-worth-visiting" },
+const planLinks = [
+  { label: "Excursions", href: "/flam-shore-excursions" },
+  { label: "One day in Flam", href: "/one-day-in-flam" },
+  { label: "Port guide", href: "/flam-port-guide" },
+  { label: "Ship schedule", href: "/ship-schedule" },
+  { label: "Flam Railway", href: "/excursions/flam-railway" },
+  { label: "Fjord cruise", href: "/excursions/flam-fjord-cruise" },
+  { label: "Stegastein viewpoint", href: "/excursions/stegastein-viewpoint" },
+  { label: "How to read ship schedules", href: "/flam-cruise-ship-schedule" },
 ] as const;
 
-const cruiseToolsLinks = [
-  { label: "Ship Schedule", href: "/ship-schedule" },
-  { label: "June 2026 Schedule", href: "/ship-schedule/june-2026" },
-  { label: "July 2026 Schedule", href: "/ship-schedule/july-2026" },
-  { label: "August 2026 Schedule", href: "/ship-schedule/august-2026" },
-  { label: "September 2026 Schedule", href: "/ship-schedule/september-2026" },
-] as const;
-
-const whyBookWithUs = [
-  "Cruise passenger friendly",
-  "Return to ship timing guidance",
-  "Fjord focused local planning",
-] as const;
-
-const trustBullets = [
-  "Return to ship friendly itineraries",
-  "Cruise passenger focused guides",
-  "Updated 2026 ship schedules",
-] as const;
-
-const ctaSecondaryLinks = [
-  { label: "View Ship Schedule", href: "/ship-schedule" },
-  { label: "Flam Port Guide", href: "/flam-port-guide" },
-  { label: "One Day in Flam", href: "/one-day-in-flam" },
+const guideLinks = [
+  { label: "Is Flam worth visiting?", href: "/is-flam-worth-visiting" },
+  { label: "Best time to visit", href: "/best-time-to-visit-flam" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ] as const;
 
 function FooterColumn({
@@ -45,7 +31,7 @@ function FooterColumn({
 }) {
   return (
     <div>
-      <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-200/90">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent-soft)]">
         {title}
       </h2>
       <div className="mt-3">{children}</div>
@@ -56,81 +42,71 @@ function FooterColumn({
 export function SiteFooter() {
   return (
     <footer className="mt-auto">
-      <section className="border-t border-sky-900/30 bg-gradient-to-r from-slate-900 via-[#132238] to-slate-900">
+      <section className="border-t border-white/10 bg-navy text-white">
         <div className="mx-auto max-w-3xl px-4 py-10 text-center sm:px-6 sm:py-12">
-          <h2 className="text-xl font-bold text-white sm:text-2xl">
-            Ready to plan your Flam cruise day?
+          <h2 className="font-display text-xl font-semibold sm:text-2xl">
+            Match Flam to the hours you actually have
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-300 sm:text-base">
-            Browse shore excursions, port guides and ship schedules designed
-            specifically for cruise passengers visiting Flam.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-white/80 sm:text-base">
+            Check your ship times, then pick railway, fjord, viewpoint or a
+            village wander. Do not assume two headline experiences will fit.
           </p>
-          <Link
-            href="/flam-shore-excursions"
-            className="mt-6 inline-block rounded-full bg-sky-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-950/30 transition hover:bg-sky-400 sm:text-base"
-          >
-            View Shore Excursions
-          </Link>
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            {ctaSecondaryLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-slate-400 transition hover:text-white"
-                >
-                  • {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link href={siteConfig.shoreExcursionsPath} className="btn-primary">
+              Explore Flam excursions
+            </Link>
+            <Link href={siteConfig.schedulePath} className="btn-secondary">
+              Check ship schedule
+            </Link>
+          </div>
         </div>
       </section>
 
-      <div className="relative border-t border-white/10 bg-[#0b1220] text-slate-200">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/35 to-transparent"
-        />
-
+      <div className="border-t border-white/10 bg-navy-deep text-slate-300">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-4">
               <Link
                 href="/"
-                className="text-lg font-bold tracking-tight text-white transition hover:text-sky-200"
+                className="text-lg font-semibold tracking-tight text-white transition hover:text-white/90"
               >
                 {siteConfig.name}
               </Link>
-              <p className="mt-3 max-w-sm text-sm leading-6 text-slate-400">
-                Independent Flam cruise port guides and shore excursion planning
-                for passengers visiting Norway&apos;s fjords.
+              <p className="mt-3 max-w-sm text-sm leading-6 text-white/65">
+                Independent Flam cruise-port planning for Flamsbana, the
+                Aurlandsfjord and Naeroyfjord. Not affiliated with any cruise
+                line, railway operator or port authority.
               </p>
-              <ul className="mt-4 space-y-2">
-                {trustBullets.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2 text-sm leading-6 text-slate-400"
+              {siteConfig.contactEmailVerified ? (
+                <p className="mt-3 text-sm text-white/65">
+                  Planning questions:{" "}
+                  <a
+                    href={`mailto:${siteConfig.contactEmail}`}
+                    className="text-white/85 underline-offset-2 hover:underline"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="text-sky-400/90"
-                    >
-                      ✓
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+                    {siteConfig.contactEmail}
+                  </a>
+                </p>
+              ) : null}
+              <p className="mt-4 text-sm text-white/55">
+                Cruising elsewhere in Norway?{" "}
+                <a
+                  href={siteConfig.nationalAuthorityUrl}
+                  className="text-white/80 underline-offset-2 hover:underline"
+                >
+                  Norway Shore Excursions
+                </a>
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 sm:col-span-1 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
-              <FooterColumn title="Plan Your Visit">
+            <div className="grid grid-cols-1 gap-8 sm:col-span-1 sm:grid-cols-2 lg:col-span-8">
+              <FooterColumn title="Plan Flam">
                 <ul className="space-y-2">
-                  {planYourVisitLinks.map((link) => (
+                  {planLinks.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-slate-400 transition hover:text-white"
+                        className="text-sm text-white/65 transition hover:text-white"
                       >
                         {link.label}
                       </Link>
@@ -139,33 +115,16 @@ export function SiteFooter() {
                 </ul>
               </FooterColumn>
 
-              <FooterColumn title="Cruise Tools">
+              <FooterColumn title="Guides & legal">
                 <ul className="space-y-2">
-                  {cruiseToolsLinks.map((link) => (
+                  {guideLinks.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-sm text-slate-400 transition hover:text-white"
+                        className="text-sm text-white/65 transition hover:text-white"
                       >
                         {link.label}
                       </Link>
-                    </li>
-                  ))}
-                </ul>
-              </FooterColumn>
-
-              <FooterColumn title="Why Book With Us">
-                <ul className="space-y-2">
-                  {whyBookWithUs.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm leading-6 text-slate-400"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-sky-400/80"
-                      />
-                      {item}
                     </li>
                   ))}
                 </ul>
@@ -173,9 +132,9 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <p className="mt-8 border-t border-white/8 pt-6 text-xs leading-5 text-slate-500">
-            © 2026 {siteConfig.copyrightEntity}. Independent cruise excursion
-            guide.
+          <p className="mt-8 border-t border-white/10 pt-6 text-xs leading-5 text-white/45">
+            © {new Date().getFullYear()} {siteConfig.copyrightEntity}. Independent
+            cruise-port planning for Flam.
           </p>
         </div>
       </div>

@@ -162,15 +162,16 @@ export default function FlamPortGuidePage() {
 
       <section>
         <p>
-          Continuing your Norwegian cruise? Many itineraries also visit Stavanger.
-          See our{" "}
-          <a
-            href="https://stavangershoreexcursions.com"
-            className="font-medium text-blue-700 underline-offset-2 hover:underline"
-          >
+          Continuing your Norwegian cruise? For the wider picture see{" "}
+          <a href="https://norwayshoreexcursions.com">
+            Norway Shore Excursions
+          </a>
+          . Many itineraries also visit Stavanger; that is a different port day,
+          covered separately at{" "}
+          <a href="https://stavangershoreexcursions.com">
             Stavanger Shore Excursions
-          </a>{" "}
-          guide for Lysefjord cruises, walking tours and cruise planning resources.
+          </a>
+          .
         </p>
       </section>
     </ContentPage>

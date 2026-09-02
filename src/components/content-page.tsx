@@ -1,8 +1,13 @@
 import Link from "next/link";
 
 import { JsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
 import { siteConfig } from "@/lib/site-config";
-import { buildFaqSchema, buildBreadcrumbSchema, buildWebPageSchema } from "@/lib/site-schema";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildWebPageSchema,
+} from "@/lib/site-schema";
 
 export type PageFaq = {
   question: string;
@@ -34,7 +39,9 @@ type ContentPageProps = {
   ctaTitle?: string;
   ctaText?: string;
   ctaHref?: string;
+  ctaButtonLabel?: string;
   showShipReassurance?: boolean;
+  relatedSectionTitle?: string;
 };
 
 export function ContentPage({
@@ -49,10 +56,12 @@ export function ContentPage({
   faqs,
   breadcrumbs,
   belowHero,
-  ctaTitle = "Plan your Flam shore excursion",
-  ctaText = "Browse cruise friendly tours designed around your ship's time in port, with enough margin to return before all aboard.",
-  ctaHref = "/flam-shore-excursions",
+  ctaTitle = "Explore Flam excursion options",
+  ctaText = "Compare railway, fjord and viewpoint ideas against your hours ashore, then keep a clear walk back to the pier.",
+  ctaHref = siteConfig.shoreExcursionsPath,
+  ctaButtonLabel = "Explore Flam excursions",
   showShipReassurance = true,
+  relatedSectionTitle = "Related Flam guides",
 }: ContentPageProps) {
   const schema = [
     buildWebPageSchema({
@@ -69,69 +78,62 @@ export function ContentPage({
   return (
     <>
       <JsonLd data={schema} />
-      <main className="min-h-screen bg-white text-gray-900">
-        <section
-          role="img"
-          aria-label={heroImageAlt}
-          className="relative bg-cover bg-center"
-          style={{ backgroundImage: `url('${heroImage}')` }}
-        >
-          <div className="bg-black/55">
-            <div className="mx-auto max-w-6xl px-4 py-16 text-white sm:px-6 sm:py-20">
-              <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-                {title}
-              </h1>
-              <p className="max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
-                {lead}
-              </p>
-              {showShipReassurance ? (
-                <p className="mt-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm sm:text-sm">
-                  Return to ship on time, cruise passenger friendly
-                </p>
-              ) : null}
-            </div>
-          </div>
-        </section>
+      <main className="min-h-screen bg-white text-slate-900">
+        <PageHero image={heroImage} imageAlt={heroImageAlt}>
+          <h1 className="font-display mb-4 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+            {title}
+          </h1>
+          <p className="max-w-3xl text-base leading-7 text-white/90 sm:text-lg">
+            {lead}
+          </p>
+          {showShipReassurance ? (
+            <p className="mt-5 max-w-xl text-xs font-medium leading-5 text-white/80 sm:text-sm">
+              Return-to-ship planning for cruise passengers
+            </p>
+          ) : null}
+        </PageHero>
 
         {belowHero}
 
         <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-          <div className="space-y-10 text-gray-700 [&_a]:font-medium [&_a]:text-blue-700 [&_a]:underline [&_a]:underline-offset-2 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-gray-900 [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
+          <div className="space-y-10 text-slate-700 [&_a]:content-link [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-slate-900 [&_li]:leading-7 [&_p]:leading-7 [&_section]:space-y-4 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
             {children}
           </div>
         </article>
 
-        <section className="border-y bg-gray-900 text-white">
+        <section className="border-y bg-navy text-white">
           <div className="mx-auto max-w-3xl px-4 py-12 text-center sm:px-6 sm:py-14">
-            <h2 className="text-2xl font-bold sm:text-3xl">{ctaTitle}</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
+            <h2 className="font-display text-2xl font-semibold sm:text-3xl">
+              {ctaTitle}
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/85 sm:text-lg">
               {ctaText}
             </p>
             <Link
               href={ctaHref}
-              className="mt-6 inline-block rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
+              className="btn-primary mt-6 sm:px-8 sm:py-3.5 sm:text-base"
             >
-              View Flam shore excursions
+              {ctaButtonLabel}
             </Link>
           </div>
         </section>
 
         {faqs && faqs.length > 0 ? (
-          <section className="border-b bg-gray-50">
+          <section className="border-b bg-surface-muted">
             <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-              <h2 className="mb-6 text-2xl font-bold text-gray-900">
+              <h2 className="mb-6 font-display text-2xl font-semibold text-slate-900">
                 Frequently asked questions
               </h2>
               <dl className="space-y-6">
                 {faqs.map((faq) => (
                   <div
                     key={faq.question}
-                    className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                    className="border border-[var(--border-light)] bg-white p-5"
                   >
-                    <dt className="font-semibold text-gray-900">
+                    <dt className="font-semibold text-slate-900">
                       {faq.question}
                     </dt>
-                    <dd className="mt-2 leading-7 text-gray-700">
+                    <dd className="mt-2 leading-7 text-slate-700">
                       {faq.answer}
                     </dd>
                   </div>
@@ -142,18 +144,15 @@ export function ContentPage({
         ) : null}
 
         {relatedLinks && relatedLinks.length > 0 ? (
-          <section className="bg-gray-50">
+          <section className="bg-surface-muted">
             <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-              <h2 className="mb-4 text-xl font-bold text-gray-900">
-                Related Flam guides
+              <h2 className="mb-4 font-display text-xl font-semibold text-slate-900">
+                {relatedSectionTitle}
               </h2>
-              <ul className="flex flex-wrap gap-3">
+              <ul className="space-y-2">
                 {relatedLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:border-gray-300"
-                    >
+                    <Link href={link.href} className="content-link text-sm">
                       {link.label}
                     </Link>
                   </li>

@@ -79,7 +79,7 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
       confidenceScore: 9,
       confidenceLabel: "Excellent Port Call",
       confidenceMessage:
-        "Plenty of time for most Flam shore excursions with comfortable return to ship margins.",
+        "Time for one main Flam experience plus village wandering, with a comfortable return buffer if you keep the day simple.",
       excursions: [
         { label: "Fjord Cruise", href: "/excursions/flam-fjord-cruise" },
         { label: "Flam Railway", href: "/excursions/flam-railway" },
@@ -87,9 +87,9 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
       ],
       dayPlan: [
         "Arrive in Flam",
-        "Morning: Fjord Cruise or Flam Railway",
+        "Morning: one headline experience, railway or fjord, if tickets are already in place",
         "Midday: Time in Flam village",
-        "Afternoon: Stegastein Viewpoint or relaxed sightseeing",
+        "Afternoon: only add Stegastein or a second outing if that ticket is confirmed",
         "Return to port by recommended return time",
       ],
     },
@@ -100,18 +100,18 @@ export const flamPortDayPlannerConfig: CruisePortDayPlannerConfig = {
       confidenceScore: 10,
       confidenceLabel: "Full Day in Flam",
       confidenceMessage:
-        "Ideal for combining multiple experiences or enjoying a relaxed day ashore.",
+        "A long call still does not prove two ticketed experiences will fit. Confirm each outing separately and keep the last hour near the pier.",
       excursions: [
         { label: "Fjord Cruise", href: "/excursions/flam-fjord-cruise" },
         { label: "Flam Railway", href: "/excursions/flam-railway" },
         { label: "Stegastein Viewpoint", href: "/excursions/stegastein-viewpoint" },
-        { label: "Multiple excursions / relaxed port day" },
+        { label: "Village time, or a second outing only if already confirmed" },
       ],
       dayPlan: [
-        "Arrive early and book or confirm your first excursion departure",
-        "Morning: Fjord Cruise or Flam Railway",
+        "Arrive early and confirm the first ticket you actually hold",
+        "Morning: one headline experience",
         "Midday: Lunch in Flam village and explore the waterfront",
-        "Afternoon: Stegastein Viewpoint or your second headline experience",
+        "Afternoon: a second outing only if tickets and buffer are already in place",
         "Keep the final hour free near the pier for a calm return to ship",
       ],
     },
